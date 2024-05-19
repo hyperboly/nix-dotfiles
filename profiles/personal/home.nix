@@ -22,13 +22,11 @@
         neovim
         tree-sitter
         lua-language-server
-        userSettings.font
-        plasma6
+        signal-desktop
+        #userSettings.font
+        #libsForQt5
     ];
 
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.desktopManager.plasma6.enable = true;
 
     home.file = {
     };
