@@ -56,6 +56,7 @@
     services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;
     services.xserver.displayManager.defaultSession = "plasma";
+    services.xserver.libinput.enable = true;
 
     fonts.fontDir.enable = true;
 
@@ -66,6 +67,20 @@
     #        pkgs.xdg-desktop-portal-gtk
     #    ];
     #};
+
+    # Enable sound.
+    sound.enable = false;
+    hardware.pulseaudio.enable = false;
+    security.rtkit.enable = true;
+    services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        jack.enable = true;
+    };
+
+    services.zfs.autoScrub.enable = true;
 
     system.stateVersion = "23.11";
 }
