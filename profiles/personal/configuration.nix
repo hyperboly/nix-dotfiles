@@ -30,8 +30,8 @@
     users.users.${userSettings.username} = {
         isNormalUser = true;
         extraGroups = [
-        "wheel"
-        "networkmanager"
+            "wheel"
+            "networkmanager"
         ];
         uid = 1000;
         description = userSettings.name;

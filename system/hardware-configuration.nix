@@ -8,8 +8,8 @@
         [ (modulesPath + "/installer/scan/not-detected.nix")
         ];
 
-    boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
-    boot.initrd.kernelModules = [ ];
+    boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+    boot.initrd.kernelModules = [ "amdgpu" ];
     boot.kernelModules = [ "kvm-amd" ];
     boot.extraModulePackages = [ ];
 
@@ -48,6 +48,12 @@
     networking.useDHCP = lib.mkDefault true;
 # networking.interfaces.enp193s0f3u2u3.useDHCP = lib.mkDefault true;
 # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
+
+# Mediatek driver fix for Framework.
+    hardware.wirelessRegulatoryDatabase = true;
+    boot.extraModprobeConfig = ''
+        options cfg80211 ieee80211_regdom="US"
+    '';
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
