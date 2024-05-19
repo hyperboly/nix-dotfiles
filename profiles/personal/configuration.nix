@@ -4,6 +4,7 @@
     imports = [
         ../../system/hardware-configuration.nix
         ../../system/grub.nix
+        ../../system/audio.nix
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -46,6 +47,8 @@
         home-manager
         cryptsetup
         wpa_supplicant
+        nvtop
+        btop
     ];
 
     environment.shells = with pkgs; [ zsh ];
@@ -59,26 +62,6 @@
     services.xserver.libinput.enable = true;
 
     fonts.fontDir.enable = true;
-
-    #xdg.portal = {
-    #    enable = true;
-    #    extraPortals = [
-    #        pkgs.xdg-desktop-portal
-    #        pkgs.xdg-desktop-portal-gtk
-    #    ];
-    #};
-
-    # Enable sound.
-    sound.enable = false;
-    hardware.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
-    };
 
     services.zfs.autoScrub.enable = true;
 
