@@ -31,7 +31,6 @@
             browser = "firefox";
             term = "foot";
             font = "monocraft";
-            fontPkg = pkgs.monocraft;
             editor = "nvim";
         };
 

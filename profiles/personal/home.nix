@@ -10,22 +10,24 @@
         ./sh.nix
     ];
 
-    home.packages = with pkgs; [
-        firefox
-        discord
-        steam
-        foot
-        keepassxc
-        syncthing
-        git
-        gcc
-        neovim
-        tree-sitter
-        lua-language-server
-        signal-desktop
-        #userSettings.font
-        #libsForQt5
-    ];
+    fonts.fontconfig.enable = true;
+
+    home.packages =
+        with pkgs; [
+            firefox
+            steam
+            foot
+            keepassxc
+            syncthing
+            git
+            gcc
+            signal-desktop
+            monocraft
+            discord
+            neovim
+            tree-sitter
+            lua-language-server
+        ];
 
 
     home.file = {

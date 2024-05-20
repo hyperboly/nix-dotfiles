@@ -9,6 +9,7 @@
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
 
+
     networking.hostName = systemSettings.hostname;
     networking.networkmanager.enable = true;
 
@@ -48,7 +49,13 @@
         cryptsetup
         nvtop
         btop
+        power-profiles-daemon
+        #sanoid
+        smartmontools
     ];
+
+    # Use Zen Kernel
+    boot.kernelPackages = pkgs.linuxPackages_zen;
     
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
@@ -57,7 +64,17 @@
 
     fonts.fontDir.enable = true;
 
+    services.smartd.enable = true;
+    services.smartd.autodetect = true;
     services.zfs.autoScrub.enable = true;
+    #services.sanoid.enable = true;
+    #services.sanoid.datasets = {
+    #    
+    #};
+    #services.sanoid.datasets.rpool.autoprune
+    #services.sanoid.datasets.rpool.autosnap = true;
+
+    services.power-profiles-daemon.enable = true;
 
     system.stateVersion = "23.11";
 }
