@@ -46,19 +46,13 @@
         git
         home-manager
         cryptsetup
-        wpa_supplicant
         nvtop
         btop
     ];
-
-    environment.shells = with pkgs; [ zsh ];
-    users.defaultUserShell = pkgs.zsh;
-    programs.zsh.enable = true;
     
     services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.desktopManager.plasma5.enable = true;
-    services.xserver.displayManager.defaultSession = "plasma";
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
     services.xserver.libinput.enable = true;
 
     fonts.fontDir.enable = true;
