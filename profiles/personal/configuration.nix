@@ -3,8 +3,10 @@
 {
     imports = [
         ../../system/hardware-configuration.nix
-        ../../system/grub.nix
-        ../../system/audio.nix
+        ../../system/boot/grub.nix
+        ../../system/audio/audio.nix
+        ../../system/kernel/zen.nix
+        ../../system/zfs/zfs.nix
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -54,9 +56,6 @@
         smartmontools
     ];
 
-    # Use Zen Kernel
-    boot.kernelPackages = pkgs.linuxPackages_zen;
-    
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
@@ -70,14 +69,6 @@
 
 
     services.smartd.enable = true;
-    services.smartd.autodetect = true;
-    services.zfs.autoScrub.enable = true;
-    #services.sanoid.enable = true;
-    #services.sanoid.datasets = {
-    #    
-    #};
-    #services.sanoid.datasets.rpool.autoprune
-    #services.sanoid.datasets.rpool.autosnap = true;
 
     services.power-profiles-daemon.enable = true;
 
