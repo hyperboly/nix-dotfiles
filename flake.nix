@@ -10,6 +10,9 @@
 
         home-manager-unstable.url = "github:nix-community/home-manager/master";
         home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+        # Hyprland repo
+        hyprland.url = "github:hyprwm/Hyprland";
     };
 
     outputs = inputs@{ self, ... }:

@@ -7,6 +7,7 @@
         ../../system/audio/audio.nix
         ../../system/kernel/zen.nix
         ../../system/zfs/zfs.nix
+        (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -66,7 +67,6 @@
     environment.shells = with pkgs; [ zsh ];
     users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
-
 
     services.smartd.enable = true;
 
