@@ -14,27 +14,36 @@
     fonts.fontconfig.enable = true;
 
     home.packages =
-        with pkgs; [
+        (with pkgs-unstable; [ # Unstable
+            foot
+            neovim
+            tree-sitter
+            lua-language-server
+            swww
+            rofi-wayland
+            dunst
+            libnotify
+            discord
+            waybar
+        ])
+        ++
+        (with pkgs; [ # Stable
             firefox
             steam
-            foot
             keepassxc
             syncthing
             git
             gcc
             signal-desktop
             monocraft
-            discord
-            neovim
-            tree-sitter
-            lua-language-server
-            zsh
-            swww
-            rofi-wayland
-            dunst
-            libnotify
-            waybar
-        ];
+        ]);
+
+    home.pointerCursor.x11.enable = true;
+    home.pointerCursor = {
+        name = "mocha";
+        package = pkgs.catppuccin-cursors;
+        size = 32;
+    };
 
 
     home.file = {

@@ -8,11 +8,9 @@
         home-manager.url = "github:nix-community/home-manager/release-23.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-        home-manager-unstable.url = "github:nix-community/home-manager/master";
-        home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
         # Hyprland repo
-        hyprland.url = "github:hyprwm/Hyprland";
+        #hyprland.url = "github:hyprwm/Hyprland";
+        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         catppuccin.url = "github:catppuccin/nix";
     };
 
@@ -37,6 +35,7 @@
             font = "monocraft";
             editor = "nvim";
             shell = "zsh";
+            #theme = inputs.catppuccin;
         };
 
         lib = inputs.nixpkgs.lib;
@@ -57,6 +56,7 @@
         };
 
         home-manager = inputs.home-manager;
+
 
         supportedSystems = [ "aarch64-linux" "x86_64-linux" ];
 
@@ -82,6 +82,7 @@
                 inherit pkgs;
                 modules = [
                     (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+                    #inputs.catppuccin.homeManagerModules.catppuccin
                 ];
                 extraSpecialArgs = {
                     inherit pkgs-unstable;

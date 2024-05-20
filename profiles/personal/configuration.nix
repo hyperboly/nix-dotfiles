@@ -53,8 +53,9 @@
         nvtop
         btop
         power-profiles-daemon
-        #sanoid
         smartmontools
+        #starship
+        #sanoid
     ];
 
     services.xserver.enable = true;
@@ -67,6 +68,12 @@
     environment.shells = with pkgs; [ zsh ];
     users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
+
+    #userSettings.theme.flavour = "mocha";
+    #programs.starship = {
+    #    enable = true;
+    #    catppuccin.enable = true;
+    #};
 
     services.smartd.enable = true;
 
