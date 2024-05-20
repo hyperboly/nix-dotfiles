@@ -65,8 +65,8 @@
 
     fonts.fontDir.enable = true;
 
-    environment.shells = with pkgs; [ zsh ];
-    users.defaultUserShell = pkgs.zsh;
+    #environment.shells = with pkgs; [ zsh ];
+    #users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
 
     #userSettings.theme.flavour = "mocha";

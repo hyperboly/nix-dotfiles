@@ -23,7 +23,6 @@
             rofi-wayland
             dunst
             libnotify
-            discord
             waybar
         ])
         ++
@@ -36,6 +35,8 @@
             gcc
             signal-desktop
             monocraft
+            wl-clipboard
+            discord
         ]);
 
     home.pointerCursor.x11.enable = true;
