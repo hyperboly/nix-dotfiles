@@ -7,6 +7,7 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
+        (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
         ../../user/shell/sh.nix
     ];
 
