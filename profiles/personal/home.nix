@@ -29,6 +29,11 @@
             tree-sitter
             lua-language-server
             zsh
+            swww
+            rofi-wayland
+            dunst
+            libnotify
+            waybar
         ];
 
 

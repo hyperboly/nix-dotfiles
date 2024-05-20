@@ -13,6 +13,7 @@
 
         # Hyprland repo
         hyprland.url = "github:hyprwm/Hyprland";
+        catppuccin.url = "github:catppuccin/nix";
     };
 
     outputs = inputs@{ self, ... }:
