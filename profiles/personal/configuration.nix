@@ -64,6 +64,11 @@
 
     fonts.fontDir.enable = true;
 
+    environment.shells = with pkgs; [ zsh ];
+    users.defaultUserShell = pkgs.zsh;
+    programs.zsh.enable = true;
+
+
     services.smartd.enable = true;
     services.smartd.autodetect = true;
     services.zfs.autoScrub.enable = true;

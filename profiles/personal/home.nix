@@ -7,7 +7,7 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
-        ./sh.nix
+        ../../user/shell/sh.nix
     ];
 
     fonts.fontconfig.enable = true;
@@ -27,6 +27,7 @@
             neovim
             tree-sitter
             lua-language-server
+            zsh
         ];
 
 
@@ -34,6 +35,8 @@
     };
 
     home.sessionVariables = {
+        EDITOR = userSettings.editor;
+        BROWSER = userSettings.browser;
     };
 
 # Let Home Manager install and manage itself.

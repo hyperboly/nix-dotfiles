@@ -7,6 +7,8 @@ let
 in {
     programs.zsh = {
         enable = true;
+        enableCompletion = true;
         shellAliases = myAliases;
+        history.path = "${config.xdg.dataHome}/zsh/history";
     };
 }

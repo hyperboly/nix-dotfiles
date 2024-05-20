@@ -32,6 +32,7 @@
             term = "foot";
             font = "monocraft";
             editor = "nvim";
+            shell = "zsh";
         };
 
         lib = inputs.nixpkgs.lib;
