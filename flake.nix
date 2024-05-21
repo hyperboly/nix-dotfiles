@@ -11,7 +11,7 @@
         # Hyprland repo
         #hyprland.url = "github:hyprwm/Hyprland";
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-        catppuccin.url = "github:catppuccin/nix";
+        stylix.url = "github:danth/stylix";
     };
 
     outputs = inputs@{ self, ... }:
@@ -35,7 +35,6 @@
             font = "monocraft";
             editor = "nvim";
             shell = "zsh";
-            #theme = inputs.catppuccin;
         };
 
         lib = inputs.nixpkgs.lib;
@@ -82,7 +81,6 @@
                 inherit pkgs;
                 modules = [
                     (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-                    #inputs.catppuccin.homeManagerModules.catppuccin
                 ];
                 extraSpecialArgs = {
                     inherit pkgs-unstable;

@@ -9,26 +9,43 @@
     imports = [
         (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
         ../../user/shell/sh.nix
+        ../../user/colorscheme/catppuccin.nix
     ];
 
     fonts.fontconfig.enable = true;
 
     home.packages =
         (with pkgs-unstable; [ # Unstable
+            # Hyprland
             foot
-            neovim
-            tree-sitter
-            lua-language-server
             swww
             rofi-wayland
             dunst
             libnotify
             waybar
+            grim
+            slurp
+            hyprlock
+            hypridle
+            swappy
+            swayimg
+            monocraft
+            libsForQt5.qt5.qtwayland
+            qt6.qtwayland
+            xdg-utils
+            xdg-desktop-portal
+            xdg-desktop-portal-gtk
+            xdg-desktop-portal-hyprland
+
+            neovim
+            tree-sitter
+            lua-language-server
         ])
         ++
         (with pkgs; [ # Stable
             firefox
             steam
+            discord
             keepassxc
             syncthing
             git
@@ -36,16 +53,49 @@
             signal-desktop
             monocraft
             wl-clipboard
-            discord
+            playerctl
+            pamixer
+            catppuccin-cursors.mochaLavender
+            mpv
+            ffmpeg
+            libreoffice-fresh
+            obs-studio
         ]);
 
-    home.pointerCursor.x11.enable = true;
+    services.syncthing.enable = true;
+
+    xdg.enable = true;
+    xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+        music = "${config.home.homeDirectory}/Music";
+        videos = "${config.home.homeDirectory}/Videos";
+        pictures = "${config.home.homeDirectory}/Pictures";
+        templates = "${config.home.homeDirectory}/Templates";
+        download = "${config.home.homeDirectory}/Downloads";
+        documents = "${config.home.homeDirectory}/Documents";
+        publicShare = "${config.home.homeDirectory}/Public";
+        desktop = null;
+    };
+    xdg.mime.enable = true;
+    xdg.mimeApps.enable = true;
+
     home.pointerCursor = {
-        name = "mocha";
+        name = "Catppuccin-Mocha-Lavender";
         package = pkgs.catppuccin-cursors;
         size = 32;
+        gtk.enable = true;
     };
 
+    gtk = {
+        enable = true;
+
+        cursorTheme = {
+            package = pkgs.catppuccin-cursors;
+            name = "Catppuccin-Mocha-Lavender";
+            size = 32;
+        };
+    };
 
     home.file = {
     };
@@ -55,6 +105,6 @@
         BROWSER = userSettings.browser;
     };
 
-# Let Home Manager install and manage itself.
+    # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 }
