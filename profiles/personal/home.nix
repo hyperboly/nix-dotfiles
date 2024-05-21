@@ -9,17 +9,15 @@
     imports = [
         (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
         ../../user/shell/sh.nix
-        ../../user/colorscheme/catppuccin.nix
+        ../../user/colorscheme/stylix.nix
     ];
 
-    fonts.fontconfig.enable = true;
+    #fonts.fontconfig.enable = true;
 
     home.packages =
         (with pkgs-unstable; [ # Unstable
             # Hyprland
-            foot
             swww
-            rofi-wayland
             dunst
             libnotify
             waybar
@@ -44,8 +42,8 @@
         ++
         (with pkgs; [ # Stable
             firefox
-            steam
             discord
+            steam
             keepassxc
             syncthing
             git
@@ -55,14 +53,26 @@
             wl-clipboard
             playerctl
             pamixer
-            catppuccin-cursors.mochaLavender
             mpv
             ffmpeg
             libreoffice-fresh
             obs-studio
+            foot
+            jellyfin-media-player
+            cinnamon.nemo
         ]);
 
     services.syncthing.enable = true;
+
+    programs.ripgrep = {
+        enable = true;
+        package = pkgs-unstable.ripgrep;
+    };
+    programs.foot.enable = true;
+    programs.fuzzel = {
+        enable = true;
+        package = pkgs-unstable.fuzzel;
+    };
 
     xdg.enable = true;
     xdg.userDirs = {
@@ -80,21 +90,8 @@
     xdg.mime.enable = true;
     xdg.mimeApps.enable = true;
 
-    home.pointerCursor = {
-        name = "Catppuccin-Mocha-Lavender";
-        package = pkgs.catppuccin-cursors;
-        size = 32;
-        gtk.enable = true;
-    };
-
     gtk = {
         enable = true;
-
-        cursorTheme = {
-            package = pkgs.catppuccin-cursors;
-            name = "Catppuccin-Mocha-Lavender";
-            size = 32;
-        };
     };
 
     home.file = {

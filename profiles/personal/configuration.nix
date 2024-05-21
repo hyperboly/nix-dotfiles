@@ -54,7 +54,7 @@
         power-profiles-daemon
         smartmontools
         fprintd
-        #starship
+        killall
         #sanoid
     ];
 
@@ -62,18 +62,18 @@
     services.xserver.enable = true;
     services.xserver.displayManager.sddm.enable = true;
     services.xserver.libinput.enable = true;
+    services.tailscale = {
+        enable = true;
+        package = pkgs.tailscale;
+        useRoutingFeatures = "client";
+        extraUpFlags = "--accept-routes";
+    };
 
     fonts.fontDir.enable = true;
 
     #environment.shells = with pkgs; [ zsh ];
     #users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
-
-    #userSettings.theme.flavour = "mocha";
-    #programs.starship = {
-    #    enable = true;
-    #    catppuccin.enable = true;
-    #};
 
     services.smartd.enable = true;
 

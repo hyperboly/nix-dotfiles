@@ -15,16 +15,16 @@ in {
         '';
     };
 
-    programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        shellAliases = myAliases;
-        history.path = "${config.xdg.dataHome}/zsh/history";
-        #autosuggestion.enable = true;
+    #programs.zsh = {
+    #    enable = true;
+    #    enableCompletion = true;
+    #    shellAliases = myAliases;
+    #    history.path = "${config.xdg.dataHome}/zsh/history";
+    #    #autosuggestion.enable = true;
 
-        initExtra = ''
-            bindkey "\e[1;5C" forward-word
-            bindkey "\e[1;5D" backward-word
-        '';
-    };
+    #    initExtra = ''
+    #        bindkey "\e[1;5C" forward-word
+    #        bindkey "\e[1;5D" backward-word
+    #    '';
+    #};
 }

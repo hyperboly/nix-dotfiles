@@ -58,7 +58,6 @@
                 drop_shadow = "true";
                 shadow_range = "4";
                 shadow_render_power = "3";
-                "col.shadow" = "rgba(1a1a1aee)";
             };
 
             animations = {
@@ -152,7 +151,7 @@
                 "$mainMod, E, exec, nemo"
                 "$mainMod, M, exec, [workspace 8 silent] feishin"
                 "$mainMod, V, togglefloating"
-                "$mainMod, D, exec, rofi -show drun"
+                "$mainMod, D, exec, fuzzel"
                 "$mainMod, P, pseudo"
                 "$mainMod, S, togglesplit"
                 "$mainMod, F, fullscreen"

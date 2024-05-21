@@ -11,7 +11,7 @@
         # Hyprland repo
         #hyprland.url = "github:hyprwm/Hyprland";
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-        stylix.url = "github:danth/stylix";
+        stylix.url = "github:danth/stylix/release-23.11";
     };
 
     outputs = inputs@{ self, ... }:
