@@ -42,7 +42,7 @@
         ++
         (with pkgs; [ # Stable
             firefox
-            discord
+            vesktop
             steam
             keepassxc
             syncthing

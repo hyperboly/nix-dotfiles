@@ -6,8 +6,8 @@
     ];
 
     stylix = {
-        image = ../wm/hyprland/wallpaper.png;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+        image = ../wm/hyprland/wallpaper.jpg;
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
         
         fonts = {
             serif = {
@@ -30,15 +30,13 @@
             };
 
             sizes = {
-                terminal = 24;
+                terminal = 20;
                 applications = 14;
                 desktop = 14;
                 popups = 18;
             };
 
         };
-
-        targets.foot.enable = true;
 
         cursor = {
             package = pkgs.bibata-cursors;

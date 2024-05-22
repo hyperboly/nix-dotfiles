@@ -111,7 +111,7 @@
             };
 
             windowrule = [
-                "fullscreen, ^(discord)$"
+                "fullscreen, ^(Discord)$"
                 "opacity 0.92 override 0.7 override, ^(foot)$"
                 "float,title:^(swayimg)(.*)$"
                 "float,title:^(Open File)(.*)$"
@@ -122,7 +122,7 @@
             ];
 
             windowrulev2 = [
-                "workspace 4 silent, class:^(discord)$"
+                "workspace 4 silent, class:^(Discord)$"
                 "workspace 10 silent, class:^(org.keepassxc.KeePassXC)$"
                 "noborder, floating:1"
                 "stayfocused, title:^()$,class:^(steam)$"
@@ -157,7 +157,7 @@
                 "$mainMod, F, fullscreen"
 
                 "$mainMod SHIFT, F, exec, firefox -p"
-                "$mainMod SHIFT, D, exec, discord"
+                "$mainMod SHIFT, D, exec, vencorddesktop --ozone-platform=wayland"
                 ''$mainMod SHIFT, S, exec, grim -g "$(slurp)" - | swappy -f -''
                 "$mainMod SHIFT, P, exec, keepassxc"
 
