@@ -55,6 +55,7 @@
         smartmontools
         fprintd
         killall
+        mangohud
         #sanoid
     ];
 
@@ -75,6 +76,18 @@
     #environment.shells = with pkgs; [ zsh ];
     #users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
+
+    programs.steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+    };
+    programs.gamemode.enable = true;
+    hardware.opengl.driSupport32Bit = true;
+
+    environment.extraInit = ''
+        unset -v SSH_ASKPASS
+    '';
+
 
     services.smartd.enable = true;
 

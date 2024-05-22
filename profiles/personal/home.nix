@@ -41,7 +41,6 @@
         (with pkgs; [ # Stable
             firefox
             vesktop
-            steam
             keepassxc
             syncthing
             git
