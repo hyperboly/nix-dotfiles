@@ -12,6 +12,7 @@
         #hyprland.url = "github:hyprwm/Hyprland";
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         stylix.url = "github:danth/stylix/release-23.11";
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
 
     outputs = inputs@{ self, ... }:

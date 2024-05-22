@@ -1,6 +1,11 @@
 { inputs, configs, pkgs-unstable, userSettings, ... }:
 
 {
+    imports = [
+        ./hypridle.nix
+        ./hyprlock.nix
+    ];
+
     wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs-unstable.system}.hyprland;
@@ -21,6 +26,7 @@
                 "dunst"
                 "[workspace 2;centerwindow] firefox -p"
                 "lxqt-policykit-agent"
+                "hypridle"
             ];
 
             exec = [
