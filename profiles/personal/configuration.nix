@@ -59,15 +59,16 @@
     ];
 
     services.fprintd.enable = true;
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.libinput.enable = true;
     services.tailscale = {
         enable = true;
         package = pkgs.tailscale;
         useRoutingFeatures = "client";
         extraUpFlags = "--accept-routes";
     };
+
+    services.xserver.enable = true;
+    services.xserver.displayManager.sddm.enable = true;
+    services.xserver.libinput.enable = true;
 
     fonts.fontDir.enable = true;
 

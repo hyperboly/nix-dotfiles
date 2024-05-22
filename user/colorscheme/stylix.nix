@@ -44,4 +44,11 @@
             size = 32;
         };
     };
+
+    qt = {
+        enable = true;
+        style.name = "Adwaita-Dark";
+        style.package = pkgs.adwaita-qt;
+        platformTheme = "qtct";
+    };
 }

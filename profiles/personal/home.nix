@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, userSettings, ... }:
+{ config, lib, pkgs, pkgs-unstable, userSettings, ... }:
 
 {
     home.username = userSettings.username;
@@ -28,8 +28,6 @@
             swappy
             swayimg
             monocraft
-            libsForQt5.qt5.qtwayland
-            qt6.qtwayland
             xdg-utils
             xdg-desktop-portal
             xdg-desktop-portal-gtk
@@ -60,6 +58,15 @@
             foot
             jellyfin-media-player
             cinnamon.nemo
+            pulsemixer
+            libsForQt5.qt5.qtwayland
+            qt6.qtwayland
+            qbittorrent-qt5
+            adwaita-qt
+            adw-gtk3
+            gnome.adwaita-icon-theme
+            lxqt.lxqt-policykit
+            brightnessctl
         ]);
 
     services.syncthing.enable = true;
@@ -92,6 +99,9 @@
 
     gtk = {
         enable = true;
+        theme.name = lib.mkDefault "Adwaita-Dark";
+
+        iconTheme.name = lib.mkDefault "Adwaita-Dark";
     };
 
     home.file = {
@@ -100,6 +110,9 @@
     home.sessionVariables = {
         EDITOR = userSettings.editor;
         BROWSER = userSettings.browser;
+        QT_STYLE_OVERRIDE = "Adwaita-Dark";
+        QT_QPA_PLATFORM = "wayland";
+        QT_QPA_PLATFORMTHEME = "qt5ct";
     };
 
     # Let Home Manager install and manage itself.
