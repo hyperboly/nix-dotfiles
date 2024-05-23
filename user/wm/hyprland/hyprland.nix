@@ -70,7 +70,7 @@
 
                 animation = [
                     "windows, 1, 6, myBezier"
-                    "windowsOut, 1, 4, default, popin 80%"
+                    "windowsOut, 1, 4, myBezier, popin 80%"
                     "border, 1, 10, default"
                     "borderangle, 1, 8, default"
                     "fade, 1, 3, default"

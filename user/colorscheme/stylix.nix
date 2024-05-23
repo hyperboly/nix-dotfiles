@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 {
     imports = [
@@ -43,6 +43,13 @@
             name = "Bibata-Modern-Ice";
             size = 32;
         };
+    };
+
+    gtk = {
+        enable = true;
+        theme.name = lib.mkDefault "Adwaita-Dark";
+
+        iconTheme.name = lib.mkDefault "Adwaita-Dark";
     };
 
     qt = {

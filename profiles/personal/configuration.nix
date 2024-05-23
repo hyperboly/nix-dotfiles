@@ -93,5 +93,14 @@
 
     services.power-profiles-daemon.enable = true;
 
+    services.fwupd.enable = true;
+
+    services.logind = {
+        powerKey = "hibernate";
+        powerKeyLongPress = "poweroff";
+        lidSwitch = "suspend";
+        lidSwitchExternalPower = "suspend";
+    };
+
     system.stateVersion = "23.11";
 }
