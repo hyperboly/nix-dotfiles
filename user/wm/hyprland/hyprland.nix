@@ -14,7 +14,7 @@
 
             monitor = [
                 "eDP-1,2560x1600@165,0x0,1"
-                "HDMI-A-1,1920x1080@60,1920x0,1"
+                "DP-2,1920x1080@60,2560x0,1"
             ];
             
             env = [
@@ -30,7 +30,7 @@
             ];
 
             exec = [
-                "swww init"
+                "swww-daemon & swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
             ];
 
             input = {
@@ -134,11 +134,11 @@
             ];
 
             workspace = [
-                "2,monitor:HDMI-A-1"
-                "3,monitor:HDMI-A-1"
-                "5,monitor:HDMI-A-1"
-                "6,monitor:HDMI-A-1"
-                "7,monitor:HDMI-A-1"
+                "2,monitor:DP-2"
+                "3,monitor:DP-2"
+                "5,monitor:DP-2"
+                "6,monitor:DP-2"
+                "7,monitor:DP-2"
                 "1,monitor:eDP-1"
                 "4,monitor:eDP-1"
                 "8,monitor:eDP-1"
