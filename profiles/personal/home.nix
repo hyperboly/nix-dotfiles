@@ -36,6 +36,10 @@
             neovim
             tree-sitter
             lua-language-server
+
+            prismlauncher
+
+            imagemagick
         ])
         ++
         (with pkgs; [ # Stable
@@ -66,10 +70,17 @@
             gnome.adwaita-icon-theme
             lxqt.lxqt-policykit
             brightnessctl
+            gimp
         ]);
 
     services.syncthing.enable = true;
 
+    programs.zathura = {
+        enable = true;
+        options = {
+            selection-clipboard = "clipboard";
+        };
+    };
     programs.ripgrep = {
         enable = true;
         package = pkgs-unstable.ripgrep;
@@ -80,21 +91,26 @@
         package = pkgs-unstable.fuzzel;
     };
 
-    xdg.enable = true;
-    xdg.userDirs = {
+    xdg = {
         enable = true;
-        createDirectories = true;
-        music = "${config.home.homeDirectory}/Music";
-        videos = "${config.home.homeDirectory}/Videos";
-        pictures = "${config.home.homeDirectory}/Pictures";
-        templates = "${config.home.homeDirectory}/Templates";
-        download = "${config.home.homeDirectory}/Downloads";
-        documents = "${config.home.homeDirectory}/Documents";
-        publicShare = "${config.home.homeDirectory}/Public";
-        desktop = null;
+        userDirs = {
+            enable = true;
+            createDirectories = true;
+            music = "${config.home.homeDirectory}/Music";
+            videos = "${config.home.homeDirectory}/Videos";
+            pictures = "${config.home.homeDirectory}/Pictures";
+            templates = "${config.home.homeDirectory}/Templates";
+            download = "${config.home.homeDirectory}/Downloads";
+            documents = "${config.home.homeDirectory}/Documents";
+            publicShare = "${config.home.homeDirectory}/Public";
+            desktop = null;
+        };
+        mime.enable = true;
+        mimeApps.defaultApplications = {
+            "application/pdf" = "org.pwmt.zathura.desktop";
+        };
+        mimeApps.enable = true;
     };
-    xdg.mime.enable = true;
-    xdg.mimeApps.enable = true;
 
     gtk = {
         enable = true;
