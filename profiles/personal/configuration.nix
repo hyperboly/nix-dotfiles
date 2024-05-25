@@ -7,6 +7,7 @@
         ../../system/audio/audio.nix
         ../../system/kernel/zen.nix
         ../../system/zfs/zfs.nix
+        ../../system/displaymanager/sddm.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
@@ -56,6 +57,7 @@
         fprintd
         killall
         mangohud
+        sddm-chili-theme
         #sanoid
     ];
 
@@ -67,8 +69,6 @@
         extraUpFlags = "--accept-routes";
     };
 
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
     services.xserver.libinput.enable = true;
 
     fonts.fontDir.enable = true;
