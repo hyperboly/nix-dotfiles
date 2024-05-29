@@ -4,11 +4,11 @@
 { config, inputs, lib, pkgs, modulesPath, ... }:
 
 {
-    imports =
-        [
-            (modulesPath + "/installer/scan/not-detected.nix")
-            inputs.nixos-hardware.nixosModules.framework-16-7040-amd
-        ];
+    imports = [
+        ./bluetooth/bluetooth.nix
+        (modulesPath + "/installer/scan/not-detected.nix")
+        inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+    ];
 
     boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
     boot.initrd.kernelModules = [ "amdgpu" ];

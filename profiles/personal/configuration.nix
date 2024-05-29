@@ -1,4 +1,4 @@
-{ configs, lib, pkgs, systemSettings, userSettings, ... }:
+{ config, lib, pkgs, systemSettings, userSettings, ... }:
 
 {
     imports = [
@@ -29,6 +29,12 @@
         LC_PAPER = systemSettings.locale;
         LC_TELEPHONE = systemSettings.locale;
         LC_TIME = systemSettings.locale;
+    };
+    i18n.inputMethod = {
+        enabled = "fcitx5";
+        fcitx5.addons = with pkgs; [
+            fcitx5-chewing
+        ];
     };
 
     users.users.${userSettings.username} = {
@@ -70,6 +76,7 @@
     };
 
     services.xserver.libinput.enable = true;
+    services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
     fonts.fontDir.enable = true;
 
