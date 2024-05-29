@@ -40,6 +40,7 @@
             prismlauncher
 
             imagemagick
+            yt-dlp
         ])
         ++
         (with pkgs; [ # Stable
