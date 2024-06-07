@@ -37,7 +37,7 @@
             tree-sitter
             lua-language-server
 
-            prismlauncher
+            prismlauncher-unwrapped
 
             imagemagick
             yt-dlp
