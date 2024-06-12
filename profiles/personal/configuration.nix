@@ -5,7 +5,7 @@
         ../../system/hardware-configuration.nix
         ../../system/boot/grub.nix
         ../../system/audio/audio.nix
-        ../../system/kernel/zen.nix
+        #../../system/kernel/zen.nix
         ../../system/zfs/zfs.nix
         ../../system/displaymanager/sddm.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
@@ -56,7 +56,7 @@
         git
         home-manager
         cryptsetup
-        nvtop
+        nvtopPackages.full
         btop
         power-profiles-daemon
         smartmontools
@@ -75,7 +75,7 @@
         extraUpFlags = "--accept-routes";
     };
 
-    services.xserver.libinput.enable = true;
+    services.libinput.enable = true;
     services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
     fonts.fontDir.enable = true;

@@ -37,10 +37,11 @@
             tree-sitter
             lua-language-server
 
-            prismlauncher-unwrapped
-
             imagemagick
             yt-dlp
+
+            prismlauncher
+            thunderbird
         ])
         ++
         (with pkgs; [ # Stable
@@ -72,6 +73,8 @@
             lxqt.lxqt-policykit
             brightnessctl
             gimp
+            ansible
+            tmux
         ]);
 
     services.syncthing.enable = true;
@@ -129,6 +132,9 @@
         QT_STYLE_OVERRIDE = "Adwaita-Dark";
         QT_QPA_PLATFORM = "wayland";
         QT_QPA_PLATFORMTHEME = "qt5ct";
+        GTK_IM_MODULE="fcitx";
+        QT_IM_MODULE="fcitx";
+        XMODIFIERS="@im=fcitx";
     };
 
     # Let Home Manager install and manage itself.

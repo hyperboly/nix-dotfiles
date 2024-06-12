@@ -162,7 +162,7 @@
                 "$mainMod, F, fullscreen"
 
                 "$mainMod SHIFT, F, exec, [centerwindow] firefox -p"
-                "$mainMod SHIFT, D, exec, vencorddesktop --ozone-platform=wayland"
+                "$mainMod SHIFT, D, exec, vesktop --ozone-platform=wayland"
                 ''$mainMod SHIFT, S, exec, grim -g "$(slurp)" - | swappy -f -''
                 "$mainMod SHIFT, P, exec, keepassxc"
 
