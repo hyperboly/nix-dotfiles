@@ -2,16 +2,19 @@
     description = "Hyper Flake";
 
     inputs = {
-        nixpkgs.url = "nixpkgs/nixos-23.11";
+        #nixpkgs.url = "nixpkgs/nixos-23.11";
+        nixpkgs.url = "nixpkgs/nixos-24.05";
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
-        home-manager.url = "github:nix-community/home-manager/release-23.11";
+        #home-manager.url = "github:nix-community/home-manager/release-23.11";
+        home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
         # Hyprland repo
         #hyprland.url = "github:hyprwm/Hyprland";
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-        stylix.url = "github:danth/stylix/release-23.11";
+        stylix.url = "github:danth/stylix/master";
+        #stylix.url = "github:danth/stylix/release-24.05";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
 

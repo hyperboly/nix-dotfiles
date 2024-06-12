@@ -6,6 +6,7 @@
 {
     imports = [
         ./bluetooth/bluetooth.nix
+        ./peripherals/nodebounce.nix
         (modulesPath + "/installer/scan/not-detected.nix")
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ];
