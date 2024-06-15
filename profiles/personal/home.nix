@@ -75,6 +75,7 @@
             gimp
             ansible
             tmux
+            kdePackages.kdenlive
         ]);
 
     services.syncthing.enable = true;
@@ -114,13 +115,6 @@
             "application/pdf" = "org.pwmt.zathura.desktop";
         };
         mimeApps.enable = true;
-    };
-
-    gtk = {
-        enable = true;
-        theme.name = lib.mkDefault "Adwaita-Dark";
-
-        iconTheme.name = lib.mkDefault "Adwaita-Dark";
     };
 
     home.file = {

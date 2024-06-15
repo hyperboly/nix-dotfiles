@@ -64,7 +64,7 @@
         killall
         mangohud
         sddm-chili-theme
-        #sanoid
+        sanoid
     ];
 
     services.fprintd.enable = true;
