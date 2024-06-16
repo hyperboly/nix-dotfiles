@@ -10,6 +10,7 @@
         (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
         ../../user/shell/sh.nix
         ../../user/colorscheme/stylix.nix
+        ../../user/tmux/tmux.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -74,7 +75,6 @@
             brightnessctl
             gimp
             ansible
-            tmux
             kdePackages.kdenlive
         ]);
 
@@ -126,7 +126,6 @@
         QT_STYLE_OVERRIDE = "Adwaita-Dark";
         QT_QPA_PLATFORM = "wayland";
         QT_QPA_PLATFORMTHEME = "qt5ct";
-        GTK_IM_MODULE="fcitx";
         QT_IM_MODULE="fcitx";
         XMODIFIERS="@im=fcitx";
     };
