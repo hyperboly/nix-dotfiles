@@ -5,7 +5,7 @@
         ../../system/hardware-configuration.nix
         ../../system/boot/grub.nix
         ../../system/audio/audio.nix
-        #../../system/kernel/zen.nix
+        ../../system/kernel/kern.nix
         ../../system/zfs/zfs.nix
         ../../system/displaymanager/sddm.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
