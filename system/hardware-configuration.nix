@@ -16,9 +16,25 @@
     boot.kernelModules = [ "kvm-amd" ];
     boot.extraModulePackages = [ ];
 
-    fileSystems."/" =
-    { device = "rpool/system/root";
+    fileSystems."/" = lib.mkForce
+    {
+        #device = "rpool/system/root";
+        #fsType = "zfs";
+        device = "tmpfs";
+        fsType = "tmpfs";
+        neededForBoot = true;
+        options = [
+            "defaults"
+            "size=2G"
+            "mode=755"
+        ];
+    };
+
+    fileSystems."/persist" =
+    {
+        device = "rpool/persist";
         fsType = "zfs";
+        neededForBoot = true;
     };
 
     fileSystems."/boot" =

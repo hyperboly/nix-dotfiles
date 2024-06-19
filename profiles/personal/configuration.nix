@@ -8,6 +8,7 @@
         ../../system/kernel/kern.nix
         ../../system/zfs/zfs.nix
         ../../system/displaymanager/sddm.nix
+        ../../system/impermanence/impermanence.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
@@ -37,6 +38,8 @@
         ];
     };
 
+    users.users.root.hashedPasswordFile = "/persist/etc/shadow/root";
+
     users.users.${userSettings.username} = {
         isNormalUser = true;
         extraGroups = [
@@ -46,6 +49,7 @@
         uid = 1000;
         description = userSettings.name;
         packages = [];
+        hashedPasswordFile = "/persist/etc/shadow/"+userSettings.name;
     };
 
     # System package
@@ -64,6 +68,7 @@
         killall
         mangohud
         sddm-chili-theme
+        fd
         sanoid
     ];
 

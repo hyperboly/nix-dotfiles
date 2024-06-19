@@ -35,7 +35,6 @@
             xdg-desktop-portal-gtk
             xdg-desktop-portal-hyprland
 
-            neovim
             tree-sitter
             lua-language-server
 
