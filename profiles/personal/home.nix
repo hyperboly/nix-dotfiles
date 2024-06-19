@@ -11,6 +11,7 @@
         ../../user/shell/sh.nix
         ../../user/colorscheme/stylix.nix
         ../../user/tmux/tmux.nix
+        ../../user/mpv/mpv.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -57,7 +58,6 @@
             wl-clipboard
             playerctl
             pamixer
-            mpv
             ffmpeg
             libreoffice-fresh
             obs-studio

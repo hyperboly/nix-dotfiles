@@ -11,7 +11,6 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
         # Hyprland repo
-        #hyprland.url = "github:hyprwm/Hyprland";
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         stylix.url = "github:danth/stylix/master";
         #stylix.url = "github:danth/stylix/release-24.05";
