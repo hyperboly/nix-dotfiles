@@ -9,6 +9,7 @@
         ../../system/zfs/zfs.nix
         ../../system/displaymanager/sddm.nix
         ../../system/impermanence/impermanence.nix
+        ../../system/editor/neovim.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
@@ -66,10 +67,10 @@
         smartmontools
         fprintd
         killall
-        mangohud
         sddm-chili-theme
         fd
         sanoid
+        mangohud
     ];
 
     services.fprintd.enable = true;

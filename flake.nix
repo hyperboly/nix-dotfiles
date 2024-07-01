@@ -10,6 +10,9 @@
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+        # impermanence repo
+        impermanence.url = "github:nix-community/impermanence";
+
         # Hyprland repo
         hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         stylix.url = "github:danth/stylix/master";
@@ -72,6 +75,7 @@
                 ];
                 specialArgs = {
                     inherit pkgs;
+                    inherit pkgs-unstable;
                     inherit systemSettings;
                     inherit userSettings;
                     inherit inputs;

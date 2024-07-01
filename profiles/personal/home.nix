@@ -12,6 +12,7 @@
         ../../user/colorscheme/stylix.nix
         ../../user/tmux/tmux.nix
         ../../user/mpv/mpv.nix
+        ../../user/neovim/neovim.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -75,6 +76,7 @@
             gimp
             ansible
             kdePackages.kdenlive
+            hugo
         ]);
 
     services.syncthing.enable = true;

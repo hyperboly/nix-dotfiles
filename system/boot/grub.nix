@@ -2,7 +2,7 @@
 
 {
     imports = [ ../hardware-configuration.nix ];
-    
+
     boot.supportedFilesystems = [ "zfs" ];
     networking.hostId = "eb3b649e";
     boot.loader.grub = {

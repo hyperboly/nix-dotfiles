@@ -9,13 +9,16 @@
         enable = true;
         image = ../wm/hyprland/wallpaper.jpg;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        
+
+        # Disable neovim (conflicts)
+        targets.vim.enable = false;
+
         fonts = {
             serif = {
                 package = pkgs.monocraft;
                 name = "Monocraft";
             };
-            
+
             sansSerif = {
                 package = pkgs.monocraft;
                 name = "Monocraft";
@@ -31,7 +34,7 @@
             };
 
             sizes = {
-                terminal = 20;
+                terminal = 14;
                 applications = 14;
                 desktop = 14;
                 popups = 18;

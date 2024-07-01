@@ -3,19 +3,17 @@
 {
     programs.neovim = {
         enable = true;
-        package = pkgs-unstable.neovim;
+        package = pkgs-unstable.neovim-unwrapped;
 
-        imports = [
-            ./plugins.nix
+        extraPackages = with pkgs-unstable; [
+            gnumake
+            unzip
+            nodePackages_latest.nodejs
+            cargo
         ];
 
         viAlias = true;
         vimAlias = true;
         vimdiffAlias = true;
-
-        extraLuaConfig = ''
-            ${builtins.readFile ./luaconfs/init.lua}
-            ${builtins.readFile ./luaconfs/init.lua}
-        '';
     };
 }

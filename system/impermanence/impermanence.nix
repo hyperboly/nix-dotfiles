@@ -13,6 +13,7 @@
             "/var/lib/bluetooth"
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"
+            "/var/lib/syncoid"
             "/etc/NetworkManager"
         ];
 
@@ -30,14 +31,21 @@
         #        "Videos"
         #        "Public"
         #        "Programming"
+        #        "keepass"
         #        ".mozilla"
         #        ".thunderbird"
+        #        ".dotfiles"
+        #        ".gitconfig"
         #        ".config/syncthing"
         #        ".config/Signal"
         #        ".config/vesktop"
+        #        ".config/nvim"
+        #        ".local/share/nvim"
         #        ".local/share/Steam"
         #        ".local/share/PrismLauncher"
         #        ".local/share/jellyfinmediaplayer"
+        #        ".local/state/nvim"
+        #        ".local/state/wireplumber"
         #        { directory = ".gnupg"; mode = "0700"; }
         #        { directory = ".ssh"; mode = "0700"; }
         #        { directory = ".local/share/keyrings"; mode = "0700"; }
