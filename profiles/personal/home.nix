@@ -8,11 +8,12 @@
 
     imports = [
         (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
-        ../../user/shell/sh.nix
-        ../../user/colorscheme/stylix.nix
-        ../../user/tmux/tmux.nix
-        ../../user/mpv/mpv.nix
+        ../../user/sh.nix
+        ../../user/stylix.nix
+        ../../user/tmux.nix
+        ../../user/mpv.nix
         ../../user/neovim/neovim.nix
+        ../../user/git.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -77,6 +78,8 @@
             ansible
             kdePackages.kdenlive
             hugo
+            audacity
+            python3
         ]);
 
     services.syncthing.enable = true;
@@ -95,6 +98,10 @@
     programs.fuzzel = {
         enable = true;
         package = pkgs-unstable.fuzzel;
+    };
+    programs.btop = {
+        enable = true;
+        settings = { color_theme = "TTY"; };
     };
 
     xdg = {

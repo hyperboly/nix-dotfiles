@@ -12,6 +12,7 @@
 
         # Disable neovim (conflicts)
         targets.vim.enable = false;
+        targets.btop.enable = false;
 
         fonts = {
             serif = {

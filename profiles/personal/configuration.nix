@@ -3,13 +3,13 @@
 {
     imports = [
         ../../system/hardware-configuration.nix
-        ../../system/boot/grub.nix
+        ../../system/grub.nix
         ../../system/audio/audio.nix
-        ../../system/kernel/kern.nix
-        ../../system/zfs/zfs.nix
+        ../../system/kern.nix
+        ../../system/zfs.nix
         ../../system/displaymanager/sddm.nix
-        ../../system/impermanence/impermanence.nix
-        ../../system/editor/neovim.nix
+        ../../system/impermanence.nix
+        ../../system/neovim.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
@@ -46,6 +46,7 @@
         extraGroups = [
             "wheel"
             "networkmanager"
+            "adbusers"
         ];
         uid = 1000;
         description = userSettings.name;
@@ -89,6 +90,8 @@
     #environment.shells = with pkgs; [ zsh ];
     #users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
+
+    programs.adb.enable = true;
 
     programs.steam = {
         enable = true;

@@ -5,7 +5,7 @@
 
 {
     imports = [
-        ./bluetooth/bluetooth.nix
+        ./bluetooth.nix
         ./peripherals/nodebounce.nix
         (modulesPath + "/installer/scan/not-detected.nix")
         inputs.nixos-hardware.nixosModules.framework-16-7040-amd
@@ -49,13 +49,31 @@
     };
 
     fileSystems."/var" =
-    { device = "rpool/system/var";
-        fsType = "zfs";
+    { 
+        #device = "rpool/system/var";
+        #fsType = "zfs";
+        device = "tmpfs";
+        fsType = "tmpfs";
+        neededForBoot = true;
+        options = [
+            "defaults"
+            "size=1G"
+            "mode=755"
+        ];
     };
 
     fileSystems."/home/hyperboly" =
-    { device = "rpool/user/home/hyperboly";
-        fsType = "zfs";
+    { 
+        #device = "rpool/user/home/hyperboly";
+        #fsType = "zfs";
+        device = "tmpfs";
+        fsType = "tmpfs";
+        neededForBoot = true;
+        options = [
+            "defaults"
+            "size=4G"
+            "mode=751"
+        ];
     };
 
     swapDevices = [ ];
@@ -71,7 +89,7 @@
 # Mediatek driver fix for Framework.
     hardware.wirelessRegulatoryDatabase = true;
     boot.extraModprobeConfig = ''
-        options cfg80211 ieee80211_regdom="US"
+        options cfg80211 ieee80211_regdom="TW"
     '';
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

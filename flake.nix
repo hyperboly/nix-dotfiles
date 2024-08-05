@@ -49,35 +49,68 @@
     in
     {
         nixosConfigurations = {
-            nixon = lib.nixosSystem {
-                system = systemSettings.system;
-                modules = [
-                    (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-                ];
-                specialArgs = {
-                    inherit pkgs;
-                    inherit pkgs-unstable;
-                    inherit systemSettings;
-                    inherit userSettings;
-                    inherit inputs;
-                };
-            };
-        };
+          nixon = lib.nixosSystem {
+            system = systemSettings.system;
+            modules = [
+              (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
 
-        homeConfigurations = {
-            hyperboly = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                modules = [
-                    (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-                ];
-                extraSpecialArgs = {
+                  extraSpecialArgs = {
                     inherit pkgs-unstable;
                     inherit systemSettings;
                     inherit userSettings;
                     inherit inputs;
+                  };
+
+                  users.${userSettings.username} = {
+                    imports = [ (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") ];
+                  };
                 };
+              }
+            ];
+            specialArgs = {
+              inherit pkgs;
+              inherit pkgs-unstable;
+              inherit systemSettings;
+              inherit userSettings;
+              inherit inputs;
             };
+          };
         };
+        #nixosConfigurations = {
+        #    nixon = lib.nixosSystem {
+        #        system = systemSettings.system;
+        #        modules = [
+        #            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+        #        ];
+        #        specialArgs = {
+        #            inherit pkgs;
+        #            inherit pkgs-unstable;
+        #            inherit systemSettings;
+        #            inherit userSettings;
+        #            inherit inputs;
+        #        };
+        #    };
+        #};
+
+        #homeConfigurations = {
+        #    hyperboly = home-manager.lib.homeManagerConfiguration {
+        #        inherit pkgs;
+        #        modules = [
+        #            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+        #        ];
+        #        extraSpecialArgs = {
+        #            inherit pkgs-unstable;
+        #            inherit systemSettings;
+        #            inherit userSettings;
+        #            inherit inputs;
+        #        };
+        #    };
+        #};
     };
 
     inputs = {
