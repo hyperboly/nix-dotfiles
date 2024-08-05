@@ -1,7 +1,7 @@
 {config, lib, pkgs, ...}:
 
 {
-    imports = [ ../hardware-configuration.nix ];
+    imports = [ ./hardware-configuration.nix ];
 
     boot.supportedFilesystems = [ "zfs" ];
     networking.hostId = "eb3b649e";

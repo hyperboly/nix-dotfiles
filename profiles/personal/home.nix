@@ -14,6 +14,7 @@
         ../../user/mpv.nix
         ../../user/neovim/neovim.nix
         ../../user/git.nix
+        ../../user/xdg.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -82,7 +83,15 @@
             python3
         ]);
 
+    #
+    # Services
+    #
+
     services.syncthing.enable = true;
+
+    #
+    # Programs
+    #
 
     programs.zathura = {
         enable = true;
@@ -102,27 +111,6 @@
     programs.btop = {
         enable = true;
         settings = { color_theme = "TTY"; };
-    };
-
-    xdg = {
-        enable = true;
-        userDirs = {
-            enable = true;
-            createDirectories = true;
-            music = "${config.home.homeDirectory}/Music";
-            videos = "${config.home.homeDirectory}/Videos";
-            pictures = "${config.home.homeDirectory}/Pictures";
-            templates = "${config.home.homeDirectory}/Templates";
-            download = "${config.home.homeDirectory}/Downloads";
-            documents = "${config.home.homeDirectory}/Documents";
-            publicShare = "${config.home.homeDirectory}/Public";
-            desktop = null;
-        };
-        mime.enable = true;
-        mimeApps.defaultApplications = {
-            "application/pdf" = "org.pwmt.zathura.desktop";
-        };
-        mimeApps.enable = true;
     };
 
     home.file = {

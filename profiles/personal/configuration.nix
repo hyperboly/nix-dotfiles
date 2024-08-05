@@ -4,12 +4,14 @@
     imports = [
         ../../system/hardware-configuration.nix
         ../../system/grub.nix
-        ../../system/audio/audio.nix
+        ../../system/audio.nix
         ../../system/kern.nix
         ../../system/zfs.nix
         ../../system/displaymanager/sddm.nix
         ../../system/impermanence.nix
         ../../system/neovim.nix
+        ../../system/locale.nix
+        ../../system/users.nix
         (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     ];
 
@@ -19,40 +21,7 @@
     networking.networkmanager.enable = true;
 
     time.timeZone = systemSettings.timezone;
-
-    i18n.defaultLocale = systemSettings.locale;
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = systemSettings.locale;
-        LC_IDENTIFICATION = systemSettings.locale;
-        LC_MEASUREMENT = systemSettings.locale;
-        LC_MONETARY = systemSettings.locale;
-        LC_NAME = systemSettings.locale;
-        LC_NUMERIC = systemSettings.locale;
-        LC_PAPER = systemSettings.locale;
-        LC_TELEPHONE = systemSettings.locale;
-        LC_TIME = systemSettings.locale;
-    };
-    i18n.inputMethod = {
-        enabled = "fcitx5";
-        fcitx5.addons = with pkgs; [
-            fcitx5-chewing
-        ];
-    };
-
-    users.users.root.hashedPasswordFile = "/persist/etc/shadow/root";
-
-    users.users.${userSettings.username} = {
-        isNormalUser = true;
-        extraGroups = [
-            "wheel"
-            "networkmanager"
-            "adbusers"
-        ];
-        uid = 1000;
-        description = userSettings.name;
-        packages = [];
-        hashedPasswordFile = "/persist/etc/shadow/"+userSettings.name;
-    };
+    fonts.fontDir.enable = true;
 
     # System package
     environment.systemPackages = with pkgs; [
@@ -74,6 +43,10 @@
         mangohud
     ];
 
+    #
+    # Services
+    #
+
     services.fprintd.enable = true;
     services.tailscale = {
         enable = true;
@@ -85,7 +58,9 @@
     services.libinput.enable = true;
     services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
-    fonts.fontDir.enable = true;
+    #
+    # Environment programs
+    #
 
     #environment.shells = with pkgs; [ zsh ];
     #users.defaultUserShell = pkgs.zsh;

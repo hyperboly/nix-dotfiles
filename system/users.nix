@@ -1,4 +1,4 @@
-{ config, lib, pkgs }:
+{ config, lib, pkgs, userSettings, ... }:
 
 {
     users.users.root.hashedPasswordFile = "/persist/etc/shadow/root";
