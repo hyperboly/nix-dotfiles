@@ -114,10 +114,6 @@
         enable = true;
         settings = { color_theme = "TTY"; };
     };
-    programs.yazi = {
-        enable = true;
-        package = pkgs-unstable.yazi;
-    };
 
     home.file = {
     };
