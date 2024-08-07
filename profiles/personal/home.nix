@@ -15,6 +15,7 @@
         ../../user/neovim/neovim.nix
         ../../user/git.nix
         ../../user/xdg.nix
+        ../../user/yazi.nix
     ];
 
     #fonts.fontconfig.enable = true;
@@ -81,6 +82,7 @@
             hugo
             audacity
             python3
+            helvum
         ]);
 
     #
@@ -111,6 +113,10 @@
     programs.btop = {
         enable = true;
         settings = { color_theme = "TTY"; };
+    };
+    programs.yazi = {
+        enable = true;
+        package = pkgs-unstable.yazi;
     };
 
     home.file = {

@@ -59,6 +59,10 @@
                     config = toLuaFile ./conf/lua/kickstart/plugins/mini.lua;
                 }
                 {
+                    plugin = todo-comments-nvim;
+                    config = toLuaFile ./conf/lua/kickstart/plugins/todo-comments.lua;
+                }
+                {
                     plugin = (nvim-treesitter.withPlugins (p: [
                         p.tree-sitter-nix
                         p.tree-sitter-vim
@@ -73,7 +77,6 @@
                     config = toLuaFile ./conf/lua/kickstart/plugins/treesitter.lua;
                 }
 
-                todo-comments-nvim
                 telescope-fzf-native-nvim
                 cmp_luasnip
                 cmp-nvim-lsp
