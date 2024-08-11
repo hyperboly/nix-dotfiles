@@ -78,6 +78,13 @@
     programs.gamemode.enable = true;
     hardware.opengl.driSupport32Bit = true;
 
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/${userSettings.username}/.dotfiles";
+    };
+
     environment.extraInit = ''
         unset -v SSH_ASKPASS
     '';
