@@ -58,6 +58,9 @@
     services.libinput.enable = true;
     services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
+    virtualisation.libvirtd.enable = true;
+    programs.virt-manager.enable = true;
+
     #
     # Environment programs
     #

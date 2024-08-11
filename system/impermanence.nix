@@ -16,6 +16,8 @@
             "/var/lib/syncoid"
             "/var/lib/fprint"
             "/var/lib/NetworkManager"
+            "/var/lib/tailscale"
+            "/var/lib/libvirt"
             "/etc/NetworkManager"
         ];
 
@@ -33,6 +35,7 @@
                 "Videos"
                 "Public"
                 "Programming"
+                "Templates"
                 "keepass"
                 ".mozilla"
                 ".thunderbird"
@@ -41,6 +44,7 @@
                 ".config/Signal"
                 ".config/vesktop"
                 ".config/fcitx5"
+                ".config/obs-studio"
                 ".local/share/nvim"
                 ".local/share/Steam"
                 ".local/share/PrismLauncher"

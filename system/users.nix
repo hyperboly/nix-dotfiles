@@ -9,6 +9,7 @@
             "wheel"
             "networkmanager"
             "adbusers"
+            "libvirtd"
         ];
         uid = 1000;
         description = userSettings.name;

@@ -52,7 +52,8 @@
           nixon = lib.nixosSystem {
             system = systemSettings.system;
             modules = [
-              (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+              #(./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+              ./profiles/${systemSettings.profile}/configuration.nix
               inputs.home-manager.nixosModules.home-manager
               {
                 home-manager = {
@@ -67,7 +68,8 @@
                   };
 
                   users.${userSettings.username} = {
-                    imports = [ (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") ];
+                    #imports = [ (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") ];
+                    imports = [ ./profiles/${systemSettings.profile}/home.nix ];
                   };
                 };
               }

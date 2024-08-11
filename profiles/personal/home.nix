@@ -7,7 +7,8 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
-        (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
+        #(./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
+        ../../user/wm/${userSettings.wm}/${userSettings.wm}.nix
         ../../user/sh.nix
         ../../user/stylix.nix
         ../../user/tmux.nix
@@ -113,6 +114,13 @@
     programs.btop = {
         enable = true;
         settings = { color_theme = "TTY"; };
+    };
+
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
     };
 
     home.file = {
