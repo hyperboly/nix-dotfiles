@@ -4,7 +4,7 @@ let
     myAliases = {
         ll = "ls -l";
         ssha = "eval `ssh-agent` ; ssh-add ~/.ssh/access-jumper";
-        push2prod = "hugo ; rsync -avz --delete public/ hyperboly@10.100.30.102:/var/www/html";
+        push2prod = "hugo --baseURL=https://blog.hyperboly.net/ ; rsync -avz --delete public/ hyperboly@10.100.30.102:/var/www/html";
     };
 in {
     programs.bash = {

@@ -76,6 +76,10 @@
                     ]));
                     config = toLuaFile ./conf/lua/kickstart/plugins/treesitter.lua;
                 }
+                # TODO: Most of these packages need configuration
+                {
+                    plugin = telescope-undo-nvim;
+                }
 
                 telescope-fzf-native-nvim
                 cmp_luasnip
