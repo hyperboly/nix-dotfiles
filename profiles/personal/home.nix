@@ -84,6 +84,7 @@
             audacity
             python3
             helvum
+            tmuxifier
         ]);
 
     #
