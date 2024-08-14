@@ -80,6 +80,10 @@
                     plugin = fidget-nvim;
                     config = toLua "require(\"fidget\").setup()";
                 }
+                {
+                    plugin = harpoon;
+                    config = toLuaFile ./conf/lua/kickstart/plugins/harpoon.lua;
+                }
 
                 undotree
                 telescope-fzf-native-nvim
