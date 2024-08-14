@@ -76,11 +76,12 @@
                     ]));
                     config = toLuaFile ./conf/lua/kickstart/plugins/treesitter.lua;
                 }
-                # TODO: Most of these packages need configuration
                 {
-                    plugin = telescope-undo-nvim;
+                    plugin = fidget-nvim;
+                    config = toLua "require(\"fidget\").setup()";
                 }
 
+                undotree
                 telescope-fzf-native-nvim
                 cmp_luasnip
                 cmp-nvim-lsp
@@ -89,7 +90,6 @@
                 friendly-snippets
                 lualine-nvim
                 vim-nix
-                fidget-nvim
             ];
 
             #extraLuaPackages = ps: with pkgs-unstable; [
