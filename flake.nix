@@ -83,36 +83,6 @@
             };
           };
         };
-        #nixosConfigurations = {
-        #    nixon = lib.nixosSystem {
-        #        system = systemSettings.system;
-        #        modules = [
-        #            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-        #        ];
-        #        specialArgs = {
-        #            inherit pkgs;
-        #            inherit pkgs-unstable;
-        #            inherit systemSettings;
-        #            inherit userSettings;
-        #            inherit inputs;
-        #        };
-        #    };
-        #};
-
-        #homeConfigurations = {
-        #    hyperboly = home-manager.lib.homeManagerConfiguration {
-        #        inherit pkgs;
-        #        modules = [
-        #            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-        #        ];
-        #        extraSpecialArgs = {
-        #            inherit pkgs-unstable;
-        #            inherit systemSettings;
-        #            inherit userSettings;
-        #            inherit inputs;
-        #        };
-        #    };
-        #};
     };
 
     inputs = {
@@ -128,7 +98,7 @@
         impermanence.url = "github:nix-community/impermanence";
 
         # Hyprland repo
-        hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+        #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
         stylix.url = "github:danth/stylix/master";
         #stylix.url = "github:danth/stylix/release-24.05";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";

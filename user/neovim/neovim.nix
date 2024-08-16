@@ -94,17 +94,18 @@
                 friendly-snippets
                 lualine-nvim
                 vim-nix
+                nvim-web-devicons
             ];
 
-            #extraLuaPackages = ps: with pkgs-unstable; [
-            #    luajitPackages.lua-utils-nvim
-            #];
+            extraLuaPackages = ps: with pkgs-unstable; [
+                luajitPackages.lua-utils-nvim
+            ];
 
             extraLuaConfig = ''
-                ${builtins.readFile ./conf/lua/options.lua}
                 ${builtins.readFile ./conf/lua/keymaps.lua}
-                ${builtins.readFile ./conf/lua/kickstart/health.lua}
+                ${builtins.readFile ./conf/lua/options.lua}
             '';
+                #${builtins.readFile ./conf/lua/kickstart/health.lua}
 
             viAlias = true;
             vimAlias = true;
