@@ -22,7 +22,7 @@
             "image/jpeg" = "swayimg.desktop";
             "image/bmp" = "swayimg.desktop";
             "image/gif" = "swayimg.desktop";
-            "inode/directory" = "yazi.desktop";
+            "inode/directory" = "nemo.desktop";
             "inode/mount-point" = "yazi.desktop";
         };
         mimeApps.enable = true;
