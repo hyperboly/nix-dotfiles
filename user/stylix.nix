@@ -30,8 +30,8 @@
                 name = "Monocraft";
             };
             emoji = {
-                package = pkgs.noto-fonts-emoji;
-                name = "Noto Color Emoji";
+                package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
+                name = "Symbols Nerd Font";
             };
 
             sizes = {
