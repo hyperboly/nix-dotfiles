@@ -85,6 +85,7 @@
             python3
             helvum
             tmuxifier
+            (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
         ]);
 
     #
