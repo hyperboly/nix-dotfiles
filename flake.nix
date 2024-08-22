@@ -98,7 +98,13 @@
         impermanence.url = "github:nix-community/impermanence";
 
         # Hyprland repo
-        #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+        hyprland = {
+            type = "git";
+            url = "https://github.com/hyprwm/Hyprland";
+            submodules = true;
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         stylix.url = "github:danth/stylix/master";
         #stylix.url = "github:danth/stylix/release-24.05";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
