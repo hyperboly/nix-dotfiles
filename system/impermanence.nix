@@ -37,6 +37,7 @@
                 "Programming"
                 "Templates"
                 "keepass"
+                "Games"
                 ".mozilla"
                 ".thunderbird"
                 ".tmux-layouts"
@@ -49,7 +50,7 @@
                 ".local/share/nvim"
                 ".local/share/Steam"
                 ".local/share/PrismLauncher"
-                ".local/share/jellyfinmediaplayer"
+                ".local/share/lutris"
                 ".local/state/nvim"
                 ".local/state/wireplumber"
                 { directory = ".gnupg"; mode = "0700"; }
