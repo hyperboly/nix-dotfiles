@@ -19,9 +19,16 @@
 
   networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "100.100.100.100" ];
 
   time.timeZone = systemSettings.timezone;
-  fonts.fontDir.enable = true;
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      wqy_zenhei
+    ];
+    fontconfig.enable = true;
+  };
 
   # System package
   environment.systemPackages = with pkgs; [
@@ -42,6 +49,7 @@
     sanoid
     mangohud
     libinput
+    virtiofsd
 
     android-tools
     android-udev-rules
@@ -61,7 +69,7 @@
     enable = true;
     package = pkgs.tailscale;
     useRoutingFeatures = "client";
-    extraUpFlags = "--accept-routes";
+    extraUpFlags = "--accept-routes --accept-dns";
   };
 
   services.libinput.enable = true;
@@ -83,9 +91,12 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
+    #fontPackages = with pkgs; [
+    #  wqy_zenhei
+    #];
   };
   programs.gamemode.enable = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
 
   programs.nh = {
     enable = true;

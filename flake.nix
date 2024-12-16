@@ -87,11 +87,11 @@
 
   inputs = {
     #nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     #home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # impermanence repo
@@ -99,10 +99,11 @@
 
     # Hyprland repo
     hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
+      #type = "git";
+      #url = "https://github.com/hyprwm/Hyprland";
       #rev = "912e7ba82defdb10efc892a5db578598c972fe4a";
-      submodules = true;
+      #submodules = true;
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

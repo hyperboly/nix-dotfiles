@@ -66,10 +66,6 @@
           passes = "1";
           new_optimizations = "true";
         };
-
-        drop_shadow = "true";
-        shadow_range = "4";
-        shadow_render_power = "3";
       };
 
       animations = {
@@ -92,7 +88,6 @@
 
         preserve_split = "true";
         default_split_ratio = "1.1";
-        no_gaps_when_only = "1";
 
         special_scale_factor = "0.7";
       };
