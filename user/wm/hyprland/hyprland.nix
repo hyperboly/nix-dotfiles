@@ -34,6 +34,7 @@
         "[workspace 2;centerwindow] firefox -p"
         "lxqt-policykit-agent"
         "hypridle"
+        "gotify-desktop"
       ];
 
       exec = [

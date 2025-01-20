@@ -18,6 +18,7 @@
     ../../user/git.nix
     ../../user/xdg.nix
     ../../user/yazi.nix
+    ../../user/gotify.nix
   ];
 
   #fonts.fontconfig.enable = true;
@@ -51,11 +52,11 @@
       prismlauncher
       thunderbird
       libreoffice-fresh
+      vesktop
     ])
     ++
     (with pkgs; [ # Stable
       firefox
-      vesktop
       keepassxc
       syncthing
       git
