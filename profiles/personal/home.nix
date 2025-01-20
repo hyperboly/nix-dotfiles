@@ -40,7 +40,7 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       qbittorrent
-      alsa-utils
+      jellyfin-media-player
 
       tree-sitter
       lua-language-server
@@ -50,6 +50,7 @@
 
       prismlauncher
       thunderbird
+      libreoffice-fresh
     ])
     ++
     (with pkgs; [ # Stable
@@ -65,10 +66,8 @@
       playerctl
       pamixer
       ffmpeg
-      libreoffice-fresh
       obs-studio
       foot
-      jellyfin-media-player
       nemo
       pulsemixer
       libsForQt5.qt5.qtwayland
@@ -88,6 +87,8 @@
       tmuxifier
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
       musescore
+      gotify-desktop
+      alsa-utils
     ]);
 
   #
