@@ -15,7 +15,7 @@
         username = "hyperboly";
         name = "hyperboly";
         email = "johnwuonmail@gmail.com";
-        dotfiles_dir = "~/.dotfiles";
+        dotfiles_dir = "/home/hyperboly/.dotfiles";
         wm = "hyprland";
         browser = "firefox";
         term = "foot";

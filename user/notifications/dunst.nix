@@ -22,4 +22,17 @@
       };
     };
   };
+
+  systemd.user.timers."battery_low" = {
+    #wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "5m";
+      OnUnitActiveSec = "5m";
+      Unit = "check_bat.service";
+    };
+  };
+  systemd.user.services."check_bat" = {
+    #wantedBy = [ "default.target" ];
+    script = userSettings.dotfiles_dir+"/user/notifications/scripts/battery-low.sh";
+  };
 }
