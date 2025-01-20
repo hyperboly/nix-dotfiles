@@ -15,7 +15,7 @@
         username = "hyperboly";
         name = "hyperboly";
         email = "johnwuonmail@gmail.com";
-        dotfilesDir = "~/.dotfiles";
+        dotfiles_dir = "~/.dotfiles";
         wm = "hyprland";
         browser = "firefox";
         term = "foot";
@@ -104,7 +104,7 @@
       #rev = "912e7ba82defdb10efc892a5db578598c972fe4a";
       #submodules = true;
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix.url = "github:danth/stylix/master";
