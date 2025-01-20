@@ -40,12 +40,12 @@
     sshKey = "/var/lib/syncoid/backup";
     commands."backup_persist" = {
       source = "rpool/persist";
-      target = "hyperboly@192.168.100.130:pool-01/Desktop_Backups";
-      extraArgs = [ "--sshport=2200
-        --no-privilege-elevation
-        --delete-target-snapshots
-        --keep-sync-snap
-        --no-stream"
+      target = "hyperboly@192.168.100.130:pool-01/hw-backups/nixon-backup";
+      extraArgs = [ "--sshport=2200"
+        "--no-privilege-elevation"
+        "--delete-target-snapshots"
+        "--keep-sync-snap"
+        "--no-stream"
       ];
       recursive = true;
     };

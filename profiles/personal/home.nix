@@ -9,6 +9,7 @@
   imports = [
     #(./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
     ../../user/wm/${userSettings.wm}/${userSettings.wm}.nix
+    ../../user/notifications/dunst.nix
     ../../user/sh.nix
     ../../user/stylix.nix
     ../../user/tmux.nix
@@ -25,7 +26,6 @@
     (with pkgs-unstable; [ # Unstable
       # Hyprland
       swww
-      dunst
       libnotify
       waybar
       grim
@@ -40,6 +40,7 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       qbittorrent
+      alsa-utils
 
       tree-sitter
       lua-language-server
@@ -132,9 +133,7 @@
   home.sessionVariables = {
     EDITOR = userSettings.editor;
     BROWSER = userSettings.browser;
-    QT_STYLE_OVERRIDE = "Adwaita-Dark";
     QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
     QT_IM_MODULE="fcitx";
     XMODIFIERS="@im=fcitx";
   };

@@ -123,7 +123,5 @@
     lidSwitchExternalPower = "suspend";
   };
 
-  services.xserver.desktopManager.gnome.enable = true;
-
   system.stateVersion = "23.11";
 }
