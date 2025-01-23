@@ -164,12 +164,16 @@
         "$mainMod, S, togglesplit"
         "$mainMod, F, fullscreen"
 
+        #Apps
         "$mainMod SHIFT, F, exec, [centerwindow] firefox -p"
         "$mainMod SHIFT, D, exec, vesktop --ozone-platform=wayland"
         ''$mainMod SHIFT, S, exec, grim -g "$(slurp)" - | swappy -f -''
         "$mainMod SHIFT, P, exec, keepassxc"
 
+        # Scripts
         "$mainMod, grave, exec, dunstctl history-pop"
+        "$mainMod, F12, exec, ~/.dotfiles/user/wm/hyprland/scripts/show-stats.sh"
+        "$mainMod, F11, exec, ~/.dotfiles/user/wm/hyprland/scripts/show-time.sh"
 
         "$mainMod, H, movefocus, l"
         "$mainMod, L, movefocus, r"
@@ -212,9 +216,6 @@
         "$mainMod, mouse_up, workspace, e-1"
 
         "$mainMod, TAB, workspace, previous"
-
-        # OBS record
-        "SUPER,F10,pass,^(com\.obsproject\.Studio)$"
 
         "SUPER,F1,exec,hyprlock"
 

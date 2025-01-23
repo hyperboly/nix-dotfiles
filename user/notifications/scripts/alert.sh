@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-aplay ~/.dotfiles/user/notifications/scripts/youGotmail.wav
+if [[ "$DUNST_SUMMARY" =~ ^\[SYSTEM\] ]]; then
+    return 0
+else
+    aplay ~/.dotfiles/user/notifications/scripts/youGotmail.wav
+fi
