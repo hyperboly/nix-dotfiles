@@ -26,4 +26,4 @@ case $VOL_LEVEL in
     *) VOL_ICON="N/a" ;;
 esac
 
-notify-send -u normal -t 7000 "[SYSTEM] System Info" "\n$VOL_ICON  $VOL_LEVEL%\t\t☀︎ $BRIGHTNESS_LEVEL%\n\n$BAT_ICON  $BAT_LEVEL%\t\t $SSID"
+notify-send -i $HOME/.dotfiles/user/notifications/icons/lain.png -u normal -t 7000 "[SYSTEM] System Info" "\n$VOL_ICON  $VOL_LEVEL%\t\t☀︎ $BRIGHTNESS_LEVEL%\n\n$BAT_ICON  $BAT_LEVEL%\t\t $SSID"
