@@ -5,13 +5,13 @@
     enable = true;
     settings = {
       global = {
-        width = 300;
+        width = 320;
         height = 300;
         offset = "30x30";
         origin = "top-right";
         transparency = 13;
-        padding = 8;
-        horizontal_padding = 8;
+        padding = 12;
+        horizontal_padding = 12;
 
         font = lib.mkForce "Monocraft 12";
       };
