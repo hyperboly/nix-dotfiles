@@ -18,7 +18,7 @@
     ../../user/git.nix
     ../../user/xdg.nix
     ../../user/yazi.nix
-    ../../user/gotify.nix
+    ../../user/gotify-desktop.nix
   ];
 
   #fonts.fontconfig.enable = true;

@@ -12,6 +12,7 @@
     ../../system/neovim.nix
     ../../system/locale.nix
     ../../system/users.nix
+    ../../system/peripherals/keyd.nix
     (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
   ];
 
@@ -77,6 +78,7 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  virtualisation.docker.enable = true;
 
   #
   # Environment programs
