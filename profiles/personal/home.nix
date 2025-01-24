@@ -19,6 +19,7 @@
     ../../user/xdg.nix
     ../../user/yazi.nix
     ../../user/gotify-desktop.nix
+    ../../user/keepassxc.nix
   ];
 
   #fonts.fontconfig.enable = true;
