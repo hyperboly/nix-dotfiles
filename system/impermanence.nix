@@ -44,7 +44,6 @@
                 ".config/syncthing"
                 ".config/Signal"
                 ".config/vesktop"
-                ".config/fcitx5"
                 ".config/obs-studio"
                 ".local/share/nvim"
                 ".local/share/Steam"
