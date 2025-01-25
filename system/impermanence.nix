@@ -40,7 +40,6 @@
                 "Games"
                 ".mozilla"
                 ".thunderbird"
-                ".tmux-layouts"
                 ".dotfiles"
                 ".config/syncthing"
                 ".config/Signal"
