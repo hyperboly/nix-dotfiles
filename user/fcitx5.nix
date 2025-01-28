@@ -1,10 +1,12 @@
 { config, ... }:
 
 {
-  home.file."${config.xdg.configHome}/.fcitx5/config".text = ''
+  home.file."${config.xdg.configHome}/fcitx6/config".text = ''
 [Hotkey]
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
+# Temporally switch between first and current Input Method
+AltTriggerKeys=
 # Enumerate Input Method Forward
 EnumerateForwardKeys=
 # Enumerate Input Method Backward
@@ -16,8 +18,6 @@ EnumerateSkipFirst=False
 0=Control+space
 1=Zenkaku_Hankaku
 2=Hangul
-
-[Hotkey/AltTriggerKeys]
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+space
@@ -49,6 +49,8 @@ EnumerateSkipFirst=False
 [Behavior]
 # Active By Default
 ActiveByDefault=False
+# Reset state on Focus In
+resetStateWhenFocusIn=No
 # Share Input State
 ShareInputState=No
 # Show preedit in application
@@ -79,8 +81,9 @@ AllowInputMethodForPassword=False
 ShowPreeditForPassword=False
 # Interval of saving user data in minutes
 AutoSavePeriod=30
-    '';
-  home.file."${config.xdg.configHome}/.fcitx5/profile".text = ''
+  '';
+
+  home.file."${config.xdg.configHome}/fcitx5/profile".text = ''
 [Groups/0]
 # Group Name
 Name=Default
@@ -103,5 +106,5 @@ Layout=
 
 [GroupOrder]
 0=Default
-    '';
+  '';
 }

@@ -15,7 +15,7 @@
     '';
   };
 
-  home.file."${config.xdg.configHome}/.tmuxifier/dotfiles.session.sh".text = ''
+  home.file.".tmux-layouts/dotfiles.session.sh".text = ''
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
 session_root "~/.dotfiles"
@@ -32,9 +32,9 @@ fi
 
 # Finalize session creation and switch/attach to it.
 finalize_and_go_to_session
-    '';
+  '';
 
-  home.file."${config.xdg.configHome}/.tmuxifier/ansible.session.sh".text = ''
+  home.file.".tmux-layouts/ansible.session.sh".text = ''
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
 session_root "~/Public/ansible/homeserver"
@@ -51,9 +51,9 @@ fi
 
 # Finalize session creation and switch/attach to it.
 finalize_and_go_to_session
-    '';
+  '';
 
-  home.file."${config.xdg.configHome}/.tmuxifier/blog.session.sh".text = ''
+  home.file.".tmux-layouts/blog.session.sh".text = ''
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
 session_root "~/Public/blog.hyperboly.net"
@@ -72,16 +72,16 @@ fi
 
 # Finalize session creation and switch/attach to it.
 finalize_and_go_to_session
-    '';
+  '';
 
-  home.file."${config.xdg.configHome}/.tmuxifier/docs.session.sh".text = ''
+  home.file.".tmux-layouts/docs.session.sh".text = ''
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
 session_root "~/Public/hl-docs"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
-if initialize_session "blog"; then
+if initialize_session "docs"; then
 
     load_window "vim"
     new_window "term"
@@ -93,5 +93,18 @@ fi
 
 # Finalize session creation and switch/attach to it.
 finalize_and_go_to_session
-    '';
+  '';
+  home.file.".tmux-layouts/vim.window.sh".text = ''
+# Set window root path. Default is `$session_root`.
+# Must be called before `new_window`.
+#window_root "~/Projects/vim"
+
+# Create new window. If no argument is given, window name will be based on
+# layout file name.
+new_window "vim"
+split_v 30
+run_cmd "nvim ." 0
+select_pane 0
+
+  '';
 }

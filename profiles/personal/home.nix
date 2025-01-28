@@ -20,6 +20,7 @@
     ../../user/yazi.nix
     ../../user/gotify-desktop.nix
     ../../user/keepassxc.nix
+    ../../user/fcitx5.nix
   ];
 
   #fonts.fontconfig.enable = true;
