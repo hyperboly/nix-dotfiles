@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  home.file."${config.xdg.configHome}/fcitx6/config".text = ''
+  home.file."${config.xdg.configHome}/fcitx5/config".text = ''
 [Hotkey]
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
