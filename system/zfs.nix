@@ -6,23 +6,24 @@
   services.sanoid = {
     enable = true;
     datasets = {
-      #"rpool/system/var" = {
-      #    hourly = 50;
-      #    daily = 15;
-      #    weekly = 3;
-      #    monthly = 1;
-      #};
-      #"rpool/user/home/hyperboly" = {
-      #    hourly = 50;
-      #    daily = 15;
-      #    weekly = 3;
-      #    monthly = 1;
-      #};
       "rpool/persist" = {
         hourly = 50;
         daily = 15;
         weekly = 3;
         monthly = 1;
+      };
+
+      "rpool/persist/videos" = {
+        hourly = 0;
+        daily = 1;
+        weekly = 3;
+        monthly = 1;
+      };
+      "rpool/persist/steam" = {
+        hourly = 0;
+        daily = 0;
+        weekly = 0;
+        monthly = 0;
       };
     };
   };
