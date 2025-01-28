@@ -32,8 +32,8 @@
     enable = true;
     interval = "*-*-* 16:15:00";
 
-    #localSourceAllow = config.services.syncoid.localSourceAllow ++ [ "mount" ];
-    #localTargetAllow = config.services.syncoid.localTargetAllow ++ [ "destroy" ];
+    localSourceAllow = config.services.syncoid.localSourceAllow ++ [ "mount" ];
+    localTargetAllow = config.services.syncoid.localTargetAllow ++ [ "destroy" ];
 
     # Must first log in manually to remote
     # RUN AS ROOT: su syncoid -s /run/current-system/sw/bin/bash
