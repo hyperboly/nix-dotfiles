@@ -55,10 +55,10 @@
       thunderbird
       libreoffice-fresh
       vesktop
+      firefox
     ])
     ++
     (with pkgs; [ # Stable
-      firefox
       keepassxc
       syncthing
       git

@@ -104,11 +104,11 @@
       #rev = "912e7ba82defdb10efc892a5db578598c972fe4a";
       #submodules = true;
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    stylix.url = "github:danth/stylix/master";
-    #stylix.url = "github:danth/stylix/release-24.05";
+    #stylix.url = "github:danth/stylix/master";
+    stylix.url = "github:danth/stylix/release-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 }

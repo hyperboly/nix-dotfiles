@@ -45,7 +45,6 @@
       extraArgs = [ "--sshport=2200"
         "--no-privilege-elevation"
         "--delete-target-snapshots"
-        "--keep-sync-snap"
         "--no-stream"
       ];
       recursive = true;
