@@ -168,7 +168,7 @@
       bind = [
         "$mainMod, T, exec, foot"
         "$mainMod, Q, killactive"
-        "$mainMod SHIFT, Q, exit"
+        "$mainMod SHIFT, Q, uwsm stop"
         "$mainMod, E, exec, nemo"
         "$mainMod, M, exec, [workspace 8 silent] feishin"
         "$mainMod, V, togglefloating"

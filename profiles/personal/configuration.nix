@@ -7,7 +7,6 @@
     ../../system/audio.nix
     ../../system/kern.nix
     ../../system/zfs.nix
-    ../../system/displaymanager/sddm.nix
     ../../system/impermanence.nix
     ../../system/neovim.nix
     ../../system/locale.nix
@@ -45,7 +44,6 @@
     smartmontools
     fprintd
     killall
-    sddm-chili-theme
     fd
     sanoid
     mangohud
