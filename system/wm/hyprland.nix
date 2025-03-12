@@ -24,6 +24,6 @@ in {
     package = hyprland-input.mesa.drivers;
 
   };
-    # if you also want 32-bit support (e.g for Steam)
+   # if you also want 32-bit support (e.g for Steam)
   hardware.graphics.enable32Bit = true;
 }

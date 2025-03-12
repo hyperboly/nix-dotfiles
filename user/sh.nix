@@ -18,7 +18,7 @@ in {
         PROMPT_COMMAND='PS1_CMD1=''$(git branch --show-current 2>/dev/null)'
         PS1='\[\e[95m\]\w\[\e[0m\] \[\e[92m\]''${PS1_CMD1}\[\e[96m\]->\[\e[0m\] '
         if uwsm check may-start && uwsm select; then
-          exec uwsm start default
+          exec uwsm start default > /dev/null
         fi
     '';
   };
