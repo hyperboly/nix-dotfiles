@@ -40,17 +40,17 @@
       ];
 
       exec-once = [
-        "foot -s"
-        "fcitx5"
-        "dunst"
-        "[workspace 2;centerwindow] firefox -p"
-        "lxqt-policykit-agent"
-        #"hypridle"
-        "gotify-desktop"
+        "uwsm-app -- foot -s"
+        "uwsm-app -- fcitx5"
+        "uwsm-app -- dunst"
+        "[workspace 2;centerwindow] uwsm-app -- firefox -p"
+        "uwsm-app -- lxqt-policykit-agent"
+        "systemctl --user start hypridle"
+        "uwsm-app -- gotify-desktop"
       ];
 
       exec = [
-        "swww-daemon & swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
+        "uwsm-app -- swww-daemon & swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
       ];
 
       input = {
@@ -166,25 +166,25 @@
       "$mainMod" = "SUPER";
 
       bind = [
-        "$mainMod, T, exec, foot"
+        "$mainMod, T, exec, uwsm-app -- foot"
         "$mainMod, Q, killactive"
         "$mainMod SHIFT, Q, uwsm stop"
-        "$mainMod, E, exec, nemo"
+        "$mainMod, E, exec, uwsm-app -- nemo"
         "$mainMod, M, exec, [workspace 8 silent] feishin"
         "$mainMod, V, togglefloating"
-        "$mainMod, D, exec, fuzzel"
+        "$mainMod, D, exec, fuzzel --launch-prefix='uwsm app -- '"
         "$mainMod, P, pseudo"
         "$mainMod, S, togglesplit"
         "$mainMod, F, fullscreen"
 
         #Apps
-        "$mainMod SHIFT, F, exec, [centerwindow] firefox -p"
-        "$mainMod SHIFT, D, exec, vesktop --ozone-platform=wayland"
+        "$mainMod SHIFT, F, exec, [centerwindow] uwsm-app -- firefox -p"
+        "$mainMod SHIFT, D, exec, uwsm-app -- vesktop --ozone-platform=wayland"
         ''$mainMod SHIFT, S, exec, grim -g "$(slurp)" - | swappy -f -''
-        "$mainMod SHIFT, P, exec, keepassxc"
+        "$mainMod SHIFT, P, exec, uwsm-app -- keepassxc"
 
         # Scripts
-        "$mainMod, grave, exec, dunstctl history-pop"
+        "$mainMod, grave, exec, uwsm-app -- dunstctl history-pop"
         "$mainMod, F12, exec, ~/.dotfiles/user/wm/hyprland/scripts/show-stats.sh"
         "$mainMod, F11, exec, ~/.dotfiles/user/wm/hyprland/scripts/show-time.sh"
 
@@ -199,7 +199,7 @@
         "$mainMod SHIFT, J, movewindow, d"
 
         # Special workspace
-        "$mainMod SHIFT, C, exec, [workspace special silent] foot"
+        "$mainMod SHIFT, C, exec, [workspace special silent] uwsm -- foot"
         "$mainMod CTRL, C, movetoworkspace, special"
         "$mainMod, C, togglespecialworkspace"
 
