@@ -64,6 +64,7 @@
   #
 
   services.fprintd.enable = true;
+  services.fprintd.tod.enable = false;
   services.tailscale = {
     enable = true;
     package = pkgs.tailscale;

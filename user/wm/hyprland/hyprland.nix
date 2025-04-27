@@ -1,14 +1,21 @@
-{ inputs, configs, pkgs, pkgs-unstable, userSettings, ... }:
+{ inputs, configs, lib, pkgs, pkgs-unstable, userSettings, ... }:
 
 {
   imports = [
-    #./hypridle.nix
+    ./hypridle.nix
     ./hyprlock.nix
   ];
 
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
+    MOZ_ENABLE_WAYLAND = "1"; # ensure enable wayland for Firefox
+    WLR_RENDERER_ALLOW_SOFTWARE = "1"; # enable software rendering for wlroots
+    WLR_NO_HARDWARE_CURSORS = "1"; # disable hardware cursors for wlroots
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     systemd.enable = false;
     #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
@@ -30,9 +37,9 @@
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
 
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
+        #"XDG_CURRENT_DESKTOP,Hyprland"
+        #"XDG_SESSION_TYPE,wayland"
+        #"XDG_SESSION_DESKTOP,Hyprland"
 
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "QT_QPA_PLATFORM,wayland;xcb"
@@ -41,7 +48,7 @@
 
       exec-once = [
         "uwsm-app -- foot -s"
-        "uwsm-app -- fcitx5"
+        "uwsm-app -- fcitx5 -d"
         "uwsm-app -- dunst"
         "[workspace 2;centerwindow] uwsm-app -- firefox -p"
         "uwsm-app -- lxqt-policykit-agent"
@@ -123,7 +130,7 @@
         focus_on_activate = "true";
         vfr = "true";
         close_special_on_empty = "true";
-        disable_hyprland_logo = "true";
+        disable_hyprland_logo = lib.mkDefault "true";
         force_default_wallpaper = "0";
       };
 
@@ -168,7 +175,7 @@
       bind = [
         "$mainMod, T, exec, uwsm-app -- foot"
         "$mainMod, Q, killactive"
-        "$mainMod SHIFT, Q, uwsm stop"
+        "$mainMod SHIFT, Q, exec, uwsm stop"
         "$mainMod, E, exec, uwsm-app -- nemo"
         "$mainMod, M, exec, [workspace 8 silent] feishin"
         "$mainMod, V, togglefloating"
@@ -261,44 +268,6 @@
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl previous"
         ",XF86AudioNext, exec, playerctl next"
-      ];
-    };
-  };
-
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        before_sleep_cmd = "loginctl lock-session";
-        ignore_dbus_inhibit = false;
-        lock_cmd = "pidof hyprlock || hyprlock";
-      };
-
-      listener = [
-        {
-          timeout = 150;
-          on-timeout = "brightnessctl -s set 10";         # set monitor backlight to minimum, avoid 0 on OLED monitor.
-          on-resume = "brightnessctl -r";         # set monitor backlight to minimum, avoid 0 on OLED monitor.
-        }
-        {
-          timeout = 150;
-          on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0"; # turn off keyboard backlight.
-          on-resume = "brightnessctl -rd rgb:kbd_backlight";        # turn on keyboard backlight.
-        }
-        {
-          timeout = 300;
-          on-timeout = "loginctl lock-session";            # lock screen when timeout has passed
-        }
-        {
-          timeout = 330;
-          on-timeout = "hyprctl dispatch dpms off";        # screen off when timeout has passed
-          on-resume = "hyprctl dispatch dpms on";          # screen on when activity is detected after timeout has fired.
-        }
-        {
-          timeout = 1800;
-          on-timeout = "systemctl suspend";                # suspend pc
-        }
       ];
     };
   };

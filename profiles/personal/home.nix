@@ -21,27 +21,24 @@
     ../../user/gotify-desktop.nix
     ../../user/keepassxc.nix
     ../../user/fcitx5.nix
+    ../../user/ai303.nix
   ];
 
   #fonts.fontconfig.enable = true;
 
   home.packages =
     (with pkgs-unstable; [ # Unstable
-      # Hyprland
       swww
       libnotify
       waybar
       grim
       slurp
-      hyprlock
-      hypridle
       swappy
       swayimg
       monocraft
       xdg-utils
       xdg-desktop-portal
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
       qbittorrent
       jellyfin-media-player
 

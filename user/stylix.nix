@@ -12,6 +12,7 @@
 
     # Disable neovim (conflicts)
     targets.vim.enable = false;
+    targets.hyprlock.enable = false;
     #targets.kubecolor.enable = false;
     #targets.btop.enable = true;
 

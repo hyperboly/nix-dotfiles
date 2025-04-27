@@ -97,17 +97,9 @@
     # impermanence repo
     impermanence.url = "github:nix-community/impermanence";
 
-    # Hyprland repo
-    hyprland = {
-      #type = "git";
-      #url = "https://github.com/hyprwm/Hyprland";
-      #rev = "912e7ba82defdb10efc892a5db578598c972fe4a";
-      #submodules = true;
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # niri repo
+    niri.url = "github:sodiboo/niri-flake";
 
-    #stylix.url = "github:danth/stylix/master";
     stylix.url = "github:danth/stylix/release-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
