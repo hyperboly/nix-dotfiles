@@ -9,6 +9,7 @@
   imports = [
     #(./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # My window manager selected from flake
     ../../user/wm/${userSettings.wm}/${userSettings.wm}.nix
+    ../../user/wm/niri/niri.nix
     ../../user/notifications/dunst.nix
     ../../user/sh.nix
     ../../user/stylix.nix
@@ -36,9 +37,9 @@
       swappy
       swayimg
       monocraft
-      xdg-utils
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
+      #xdg-utils
+      #xdg-desktop-portal
+      #xdg-desktop-portal-gtk
       qbittorrent
       jellyfin-media-player
 
@@ -85,7 +86,7 @@
       python3
       helvum
       tmuxifier
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      #nerd-fonts.symbols-only
       musescore
       gotify-desktop
       alsa-utils

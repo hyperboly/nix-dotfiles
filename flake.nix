@@ -16,7 +16,7 @@
         name = "hyperboly";
         email = "johnwuonmail@gmail.com";
         dotfiles_dir = "/home/hyperboly/.dotfiles";
-        wm = "hyprland";
+        wm = "hyprland"; # hyprland, niri
         browser = "firefox";
         term = "foot";
         font = "monocraft";
@@ -50,9 +50,8 @@
       {
       nixosConfigurations = {
         nixon = lib.nixosSystem {
-          system = systemSettings.system;
+          #system = systemSettings.system;
           modules = [
-            #(./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
             ./profiles/${systemSettings.profile}/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             {
@@ -68,14 +67,13 @@
                 };
 
                 users.${userSettings.username} = {
-                  #imports = [ (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix") ];
                   imports = [ ./profiles/${systemSettings.profile}/home.nix ];
                 };
               };
             }
           ];
           specialArgs = {
-            inherit pkgs;
+            #inherit pkgs;
             inherit pkgs-unstable;
             inherit systemSettings;
             inherit userSettings;
@@ -86,12 +84,12 @@
     };
 
   inputs = {
-    #nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    #nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     #home-manager.url = "github:nix-community/home-manager/release-23.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # impermanence repo
@@ -100,7 +98,7 @@
     # niri repo
     niri.url = "github:sodiboo/niri-flake";
 
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 }

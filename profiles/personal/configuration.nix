@@ -12,10 +12,12 @@
     ../../system/locale.nix
     ../../system/users.nix
     ../../system/peripherals/keyd.nix
-    (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
+    ../../system/wm/${userSettings.wm}.nix
+    ../../system/wm/niri.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;

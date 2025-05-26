@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
 
   stylix = {
@@ -32,7 +32,7 @@
         name = "Monocraft";
       };
       emoji = {
-        package = pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; };
+        package = pkgs.nerd-fonts.symbols-only;
         name = "Symbols Nerd Font";
       };
 
@@ -70,8 +70,8 @@
 
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
+    style.name = lib.mkDefault "adwaita-dark";
     style.package = pkgs.adwaita-qt;
-    platformTheme.name = "adwaita";
+    platformTheme.name = lib.mkDefault "adwaita";
   };
 }
