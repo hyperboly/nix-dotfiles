@@ -3,6 +3,23 @@
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
 
+
+environment {
+    DISPLAY ":0"
+    GDK_BACKEND "wayland,x11,*"
+    QT_QPA_PLATFORM "wayland;xcb"
+    SDL_VIDEODRIVER "wayland"
+    CLUTTER_BACKEND "wayland"
+
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -251,7 +268,10 @@ spawn-at-startup "sh" "-c" "swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg 
 spawn-at-startup "thunderbird"
 spawn-at-startup "vesktop" "--ozone-platform=wayland"
 spawn-at-startup "firefox" "-p"
+spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "keepassxc"
+spawn-at-startup "foot" "-s"
+spawn-at-startup "xwayland-satellite"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -263,7 +283,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/screenshot%Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -316,18 +336,23 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    open-on-workspace "keepass"
+}
+
+window-rule {
     match at-startup=true title=r#"^Mozilla Thunderbird$"#
-    open-on-workspace "chat"
+    open-on-workspace "thunderbird"
 }
 
 window-rule {
     match at-startup=true title=r#"^Mozilla Firefox$"#
-    open-on-workspace "chat"
+    open-on-workspace "browser"
 }
 
 window-rule {
-    match at-startup=true title=r#"^org\.keepassxc\.KeePassXC$"#
-    open-on-workspace "keepass"
+    match at-startup=true app-id=r#"^vesktop$"#
+    open-on-workspace "chat"
 }
 
 window-rule {
@@ -349,12 +374,17 @@ window-rule {
 
 workspace "thunderbird"
 workspace "browser"
-workspace "chat"
 workspace "term"
+workspace "chat"
 workspace "keepass"
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 overview {
-    
 }
 
 binds {
@@ -534,11 +564,13 @@ binds {
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
+    Mod+o { toggle-overview; }
+
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
