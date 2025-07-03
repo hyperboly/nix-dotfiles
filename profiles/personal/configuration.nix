@@ -13,7 +13,7 @@
     ../../system/users.nix
     ../../system/peripherals/keyd.nix
     ../../system/wm/${userSettings.wm}.nix
-    ../../system/wm/niri.nix
+    ../../system/displaymanager/tuigreet.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -22,6 +22,10 @@
   networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;
   networking.nameservers = [ "100.100.100.100" ];
+  networking.firewall = rec {
+    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
 
   time.timeZone = systemSettings.timezone;
   fonts = {
@@ -57,6 +61,10 @@
     lutris
     man-pages
     man-pages-posix
+
+
+    # for niri
+    xwayland-satellite
   ];
 
   documentation.dev.enable = true;

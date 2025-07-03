@@ -44,6 +44,7 @@
       target = "hyperboly@192.168.100.130:pool-01/hw-backups/nixon-backup";
       extraArgs = [ "--sshport=2200"
         "--no-privilege-elevation"
+        "--no-sync-snap"
         "--delete-target-snapshots"
         "--no-stream"
       ];

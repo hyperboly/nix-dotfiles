@@ -16,7 +16,7 @@
         name = "hyperboly";
         email = "johnwuonmail@gmail.com";
         dotfiles_dir = "/home/hyperboly/.dotfiles";
-        wm = "hyprland"; # hyprland, niri
+        wm = "niri"; # hyprland, niri
         browser = "firefox";
         term = "foot";
         font = "monocraft";

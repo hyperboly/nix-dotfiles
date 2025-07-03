@@ -23,6 +23,7 @@
                 docker-compose-language-service
                 ansible-language-server
                 bash-language-server
+                gopls
             ];
 
             plugins = with pkgs-unstable.vimPlugins; [
@@ -65,6 +66,7 @@
                 {
                     plugin = (nvim-treesitter.withPlugins (p: [
                         p.tree-sitter-nix
+                        p.tree-sitter-go
                         p.tree-sitter-vim
                         p.tree-sitter-vimdoc
                         p.tree-sitter-bash
