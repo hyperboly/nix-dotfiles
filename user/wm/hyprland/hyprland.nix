@@ -138,24 +138,40 @@
         allow_workspace_cycles = "true";
       };
 
+      #      windowrule = [
+      #        "fullscreen, ^(Discord)$"
+      #        "opacity 0.92 override 0.7 override, ^(foot)$"
+      #        "float,title:^(swayimg)(.*)$"
+      #        "float,title:^(Open File)(.*)$"
+      #        "float,title:^(Open Folder)(.*)$"
+      #        "float,title:^(Save As)(.*)$"
+      #        "float,title:^(Library)(.*)$"
+      #        "float,title:^(Firefox - Choose User Profile:)$"
+      #      ];
+      #
+      #      windowrulev2 = [
+      #        "workspace 4 silent, class:^(Discord)$"
+      #        "workspace 10 silent, class:^(org.keepassxc.KeePassXC)$"
+      #        "noborder, floating:1"
+      #        "stayfocused, title:^()$,class:^(steam)$"
+      #        "minsize 1 1, title:^()$,class:^(steam)$"
+      #      ];
       windowrule = [
-        "fullscreen, ^(Discord)$"
-        "opacity 0.92 override 0.7 override, ^(foot)$"
-        "float,title:^(swayimg)(.*)$"
-        "float,title:^(Open File)(.*)$"
-        "float,title:^(Open Folder)(.*)$"
-        "float,title:^(Save As)(.*)$"
-        "float,title:^(Library)(.*)$"
-        "float,title:^(Firefox - Choose User Profile:)$"
-      ];
-
-      windowrulev2 = [
+        "fullscreen, class:^(Discord)$"
+        "opacity 0.92 override 0.7 override, class:^(foot)$"
+        "float, title:^(swayimg)(.*)$"
+        "float, title:^(Open File)(.*)$"
+        "float, title:^(Open Folder)(.*)$"
+        "float, title:^(Save As)(.*)$"
+        "float, title:^(Library)(.*)$"
+        "float, title:^(Firefox - Choose User Profile:)$"
         "workspace 4 silent, class:^(Discord)$"
         "workspace 10 silent, class:^(org.keepassxc.KeePassXC)$"
         "noborder, floating:1"
-        "stayfocused, title:^()$,class:^(steam)$"
-        "minsize 1 1, title:^()$,class:^(steam)$"
+        "stayfocused, title:^()$, class:^(steam)$"
+        "minsize 1 1, title:^()$, class:^(steam)$"
       ];
+
 
       workspace = [
         "2,monitor:DP-2"
