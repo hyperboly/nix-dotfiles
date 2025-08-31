@@ -9,6 +9,7 @@
     enable = true;
     image = ./wm/hyprland/wallpaper.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    polarity = "dark";
 
     # Disable neovim (conflicts)
     targets.vim.enable = false;
