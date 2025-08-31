@@ -14,6 +14,11 @@
     (box :orientation "h" :space-evenly false
         (win10_button)
         (search)
+        (traypopper)
+        (battery_level)
+        (network)
+        (sound_icon)
+        (input_method)
         (date)
         (notif)))
 
@@ -42,3 +47,49 @@
   "date '+%I:%M%p'")
 (defpoll time_bottom :interval "10s"
   "date '+%m/%d/%Y'")
+
+(defwidget input_method []
+ (box :orientation "v" :halign "end"
+ (button :onclick ""
+ (label :text {im == "keyboard-us" ? "ENG" : im == "chewing" ? "中" : "N/a"}))))
+
+(defpoll im :interval "1s"
+  "fcitx5-remote -n")
+
+(defwidget sound_icon []
+ (box :orientation "h" :halign "end" :tooltip "${volume}%"
+ (button :onclick ""
+ (label :text {mute == "true" ? "" :
+ volume < 40 ? "" :
+ volume < 100 ? "" : "N/a"}))))
+
+(defpoll volume :interval "1s"
+  "pamixer --get-volume")
+(defpoll mute :interval "1s"
+  "pamixer --get-mute")
+
+(defwidget network []
+ (box :orientation "h" :halign "end" :tooltip "Signal Strength: ${net}"
+ (button :onclick ""
+ (label :text {net == "" ? "󰤯" :
+ net < 26 ? "󰤟" :
+ net < 51 ? "󰤢" :
+ net < 76 ? "󰤥" : "󰤨" }))))
+
+(defpoll net :interval "100s"
+  :initial `N/A`
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+    | awk -F':' '{if($2=="yes")print$1}'`)
+
+(defwidget battery_level []
+ (box :orientation "h" :halign "end" :tooltip "${EWW_BATTERY.BAT1.capacity}%"
+ (button :onclick ""
+ (label :text { EWW_BATTERY.BAT1.capacity < 15 ? "" :
+ EWW_BATTERY.BAT1.capacity < 26 ? "" :
+ EWW_BATTERY.BAT1.capacity < 51 ? "" :
+ EWW_BATTERY.BAT1.capacity < 76 ? "" : ""}))))
+
+(defwidget traypopper []
+ (box :halign "end"
+ (button :onclick ""
+ (label :text ""))))
