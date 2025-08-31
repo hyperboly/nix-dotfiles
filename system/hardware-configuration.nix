@@ -9,6 +9,7 @@
     ./peripherals/nodebounce.nix
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
+    inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
   boot.initrd.availableKernelModules = [ "amdgpu" "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
@@ -16,6 +17,13 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = with config.boot.kernelPackages;
     [ framework-laptop-kmod ];
+
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   fileSystems."/" = lib.mkForce
     {
@@ -41,7 +49,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/3483-D2EB";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/nix" =

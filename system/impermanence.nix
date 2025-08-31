@@ -17,7 +17,9 @@
             "/var/lib/fprint"
             "/var/lib/NetworkManager"
             "/var/lib/tailscale"
+            "/var/lib/containers" # OCI Containers (images...)
             "/var/lib/libvirt"
+            "/var/lib/sbctl"
             "/etc/NetworkManager"
         ];
 

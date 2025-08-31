@@ -42,6 +42,7 @@
       #xdg-desktop-portal-gtk
       qbittorrent
       jellyfin-media-player
+      jellyfin-mpv-shim
 
       tree-sitter
       lua-language-server
@@ -89,6 +90,7 @@
       musescore
       gotify-desktop
       alsa-utils
+      swayidle
     ]);
 
   #
@@ -119,6 +121,7 @@
   };
   programs.btop = {
     enable = true;
+    package = pkgs.btop-rocm;
     settings = { color_theme = "stylix"; };
   };
 

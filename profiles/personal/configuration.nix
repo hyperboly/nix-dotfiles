@@ -3,7 +3,7 @@
 {
   imports = [
     ../../system/hardware-configuration.nix
-    ../../system/grub.nix
+    # ../../system/grub.nix
     ../../system/audio.nix
     ../../system/kern.nix
     ../../system/zfs.nix
@@ -11,6 +11,7 @@
     ../../system/neovim.nix
     ../../system/locale.nix
     ../../system/users.nix
+    ../../system/containers.nix
     ../../system/peripherals/keyd.nix
     ../../system/wm/${userSettings.wm}.nix
     ../../system/displaymanager/tuigreet.nix
@@ -20,7 +21,10 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = systemSettings.hostname;
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.macAddress = "random";
+  };
   networking.nameservers = [ "100.100.100.100" ];
   networking.firewall = rec {
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
@@ -45,7 +49,6 @@
     home-manager
     cryptsetup
     nvtopPackages.full
-    btop
     power-profiles-daemon
     smartmontools
     fprintd
@@ -62,6 +65,7 @@
     man-pages
     man-pages-posix
 
+    sbctl
 
     # for niri
     xwayland-satellite
@@ -85,9 +89,25 @@
   services.libinput.enable = true;
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
+  # KDE
+  services.desktopManager.plasma6.enable = true;
+
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    # Consider disabling the system wide Docker daemon
+    enable = false;
+
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+      # Optionally customize rootless Docker daemon settings
+      daemon.settings = {
+        dns = [ "1.1.1.1" "8.8.8.8" ];
+        registry-mirrors = [ "https://mirror.gcr.io" ];
+      };
+    };
+  };
 
   #
   # Environment programs
@@ -96,6 +116,8 @@
   #environment.shells = with pkgs; [ zsh ];
   #users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  programs.htop.enable = true;
 
   programs.adb.enable = true;
 
@@ -131,6 +153,18 @@
     powerKeyLongPress = "poweroff";
     lidSwitch = "suspend";
     lidSwitchExternalPower = "suspend";
+  };
+
+  # Boot
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 30;
+  boot.loader.efi.canTouchEfiVariables = true;
+  networking.hostId = "eb3b649e";
+  boot.initrd.luks.devices = {
+    root = {
+      device = "/dev/disk/by-uuid/76d3da1e-e86e-4025-b00a-2b8a8cc0f682";
+      preLVM = true;
+    };
   };
 
   system.stateVersion = "23.11";

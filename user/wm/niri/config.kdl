@@ -76,13 +76,17 @@ input {
     focus-follows-mouse max-scroll-amount="40%"
 }
 
+switch-events {
+    lid-close { spawn "swaylock" "-fF"; }
+}
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -95,7 +99,7 @@ input {
     mode "2560x1600@165.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1.6
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -110,7 +114,16 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=0
+
+    focus-at-startup
+}
+
+output "DP-2" {
+    mode "1920x1080@60.000"
+    scale 1
+    transform "normal"
+    position x=1600 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -272,6 +285,7 @@ spawn-at-startup "fcitx5" "-d"
 spawn-at-startup "keepassxc"
 spawn-at-startup "foot" "-s"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "sh" "-c" "swayidle -w timeout 150 \"brightnessctl -s set 10\" resume \"brightnessctl -r\" timeout 300 \"swaylock -fF\" timeout 330 \"niri msg action power-off-monitors\" timeout 1800 \"systemctl suspend\" before-sleep \"swaylock -fF\" after-resume \"niri msg action power-on-monitors & brightnessctl -r & brightnessctl -rd rgb:kbd_backlight\""
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -293,10 +307,10 @@ screenshot-path "~/Pictures/Screenshots/screenshot%Y-%m-%d %H-%M-%S.png"
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 1.0
+    // slowdown 1.0
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -372,11 +386,21 @@ window-rule {
     open-maximized true
 }
 
-workspace "thunderbird"
-workspace "browser"
-workspace "term"
-workspace "chat"
-workspace "keepass"
+workspace "thunderbird" {
+    open-on-output "eDP-1"
+}
+workspace "browser" {
+    open-on-output "eDP-1"
+}
+workspace "term" {
+    open-on-output "eDP-1"
+}
+workspace "chat" {
+    open-on-output "eDP-1"
+}
+workspace "keepass" {
+    open-on-output "eDP-1"
+}
 
 gestures {
     hot-corners {

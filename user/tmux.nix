@@ -12,6 +12,7 @@
 
             set -ga update-environment TERM
             set -ga update-environment TERM_PROGRAM
+            setw -g mode-keys vi
     '';
   };
 
