@@ -91,6 +91,10 @@
       gotify-desktop
       alsa-utils
       swayidle
+    ])
+    ++
+    ([
+      ( pkgs.callPackage ../../user/pkgs/eww-niri-workspaces/eww-niri-workspaces.nix {} )
     ]);
 
   #

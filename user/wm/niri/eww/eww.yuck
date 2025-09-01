@@ -1,4 +1,4 @@
-(defwindow my_bar
+(defwindow win_bar
            :monitor 0
            :geometry (geometry :x "0%"
                                :y "0px"
@@ -11,35 +11,44 @@
   (bar_layout))
 
 (defwidget bar_layout []
-    (box :orientation "h" :space-evenly false
-        (win10_button)
-        (search)
-        (traypopper)
-        (battery_level)
-        (network)
-        (sound_icon)
-        (input_method)
-        (date)
-        (notif)))
+    (box :orientation "h" :space-evenly true :class "win_bar"
+        (widgets_left)
+        (widgets_right)))
 
-(defwidget win10_button []
- (box :orientation "h" :halign "start"
+(defwidget widgets_left []
+ (box :orientation "h" :halign "start" :space-evenly false
+ (logo)
+ (search)
+ (workspaces)))
+
+(defwidget widgets_right []
+ (box :orientation "h" :halign "end" :space-evenly false
+  (traypopper)
+  (battery_level)
+  (network)
+  (sound_icon)
+  (input_method)
+  (date)
+  (notif)))
+
+(defwidget logo []
+ (box :orientation "h" :halign "center" :class "logo"
  (button :onclick "notify-send im ok"
  (label :text ""))))
 
 (defwidget search []
- (box :orientation "h" :halign "start" :width 250 :hexpand true
- (button :onclick "fuzzel" 
- (label :text "Search Bar" :halign "start"))))
+ (box :orientation "h" :halign "center" :width 250 :hexpand true
+ (button :onclick "fuzzel -a bottom-left &"
+ (label :text "Search Bar" :halign "center"))))
 
 (defwidget notif []
- (box :orientation "h" :halign "end"
+ (box :orientation "h" :halign "center"
  (button :onclick "dunstctl history-pop"
  (label :text ""))))
 
 (defwidget date []
  (button :orientation "v" :onclick ""
- (box :orientation "v" :halign "end"
+ (box :orientation "v" :halign "center"
  (label :valign "start" :justify "center" :text time_top)
  (label :valign "end" :justify "center" :text time_bottom))))
 
@@ -49,7 +58,7 @@
   "date '+%m/%d/%Y'")
 
 (defwidget input_method []
- (box :orientation "v" :halign "end"
+ (box :orientation "h" :halign "center"
  (button :onclick ""
  (label :text {im == "keyboard-us" ? "ENG" : im == "chewing" ? "中" : "N/a"}))))
 
@@ -57,7 +66,7 @@
   "fcitx5-remote -n")
 
 (defwidget sound_icon []
- (box :orientation "h" :halign "end" :tooltip "${volume}%"
+ (box :orientation "h" :halign "center" :tooltip "${volume}%"
  (button :onclick ""
  (label :text {mute == "true" ? "" :
  volume < 40 ? "" :
@@ -69,7 +78,7 @@
   "pamixer --get-mute")
 
 (defwidget network []
- (box :orientation "h" :halign "end" :tooltip "Signal Strength: ${net}"
+ (box :orientation "h" :halign "center" :tooltip "Signal Strength: ${net}"
  (button :onclick ""
  (label :text {net == "" ? "󰤯" :
  net < 26 ? "󰤟" :
@@ -82,14 +91,19 @@
     | awk -F':' '{if($2=="yes")print$1}'`)
 
 (defwidget battery_level []
- (box :orientation "h" :halign "end" :tooltip "${EWW_BATTERY.BAT1.capacity}%"
+ (box :orientation "h" :halign "center" :tooltip "${EWW_BATTERY.BAT1.capacity}% & ${EWW_BATTERY.BAT1.status}"
  (button :onclick ""
  (label :text { EWW_BATTERY.BAT1.capacity < 15 ? "" :
- EWW_BATTERY.BAT1.capacity < 26 ? "" :
- EWW_BATTERY.BAT1.capacity < 51 ? "" :
- EWW_BATTERY.BAT1.capacity < 76 ? "" : ""}))))
+ EWW_BATTERY.BAT1.capacity < 26 ? " " :
+ EWW_BATTERY.BAT1.capacity < 51 ? " " :
+ EWW_BATTERY.BAT1.capacity < 76 ? " " : " "}))))
 
 (defwidget traypopper []
- (box :halign "end"
+ (box :halign "center"
  (button :onclick ""
  (label :text ""))))
+
+(deflisten workspaces_listen "niri msg -j event-stream | ./scripts/workspaces.py")
+
+(defwidget workspaces []
+  (literal :content workspaces_listen))
