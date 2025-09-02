@@ -15,6 +15,7 @@
                 unzip
                 nodePackages_latest.nodejs
                 cargo
+                lazygit
 
                 lua-language-server
                 nil
@@ -30,6 +31,10 @@
                 {
                     plugin = nvim-lspconfig;
                     config = toLuaFile ./conf/lua/kickstart/plugins/lspconfig.lua;
+                }
+                {
+                    plugin = lazygit-nvim;
+                    config = toLuaFile ./conf/lua/kickstart/plugins/lazygit.lua;
                 }
                 {
                     plugin = comment-nvim;
