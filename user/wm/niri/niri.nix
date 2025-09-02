@@ -6,7 +6,7 @@
     swaylock.enable = true;
     eww = {
       enable = true;
-      configDir = ./eww;
+      configDir = ./eww-winbar;
     };
   };
 }

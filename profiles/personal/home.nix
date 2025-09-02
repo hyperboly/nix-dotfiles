@@ -91,6 +91,7 @@
       gotify-desktop
       alsa-utils
       swayidle
+      dragon-drop
     ]);
     # ++
     # ([

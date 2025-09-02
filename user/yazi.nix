@@ -5,6 +5,14 @@
     enable = true;
     package = pkgs-unstable.yazi;
     enableBashIntegration = true;
+    keymap = {
+      mgr.prepend_keymap = [
+        { on = [ "g" "r" ]; run = ''shell -- ya emit cd "$(git rev-parse --show-toplevel)"''; }
+        { on = [ "y" ]; run = [ "yank" ''shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list'']; }
+        { on = [ "<C-n>" ]; run = ''shell -- dragon -x -i -T "$1"''; }
+        { on = [ "!" ]; for = "unix"; run = ''shell "$SHELL" --block''; desc = "Open $SHELL here"; }
+      ];
+    };
     settings = {
       log = {
         enabled = false;
@@ -16,13 +24,6 @@
         sort_reverse = true;
         show_symlink = true;
         scrolloff = 10;
-        prepend_keymap = {
-          on = "y";
-          run = [
-            ''shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm''
-            "yank"
-          ];
-        };
       };
       preview = {
         max_width = 900;
