@@ -436,6 +436,8 @@ binds {
     Mod+Grave { spawn "dunstctl" "history-pop"; }
     Mod+F12 { spawn "~/.dotfiles/user/wm/hyprland/scripts/show-stats.sh"; }
     Mod+F11 { spawn "~/.dotfiles/user/wm/hyprland/scripts/show-time.sh"; }
+    Mod+B { spawn "eww" "open" "-c" "~/.dotfiles/user/wm/niri/eww-winbar" "win_bar"; }
+    Mod+Shift+B { spawn "eww" "kill" "-c" "~/.dotfiles/user/wm/niri/eww-winbar"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
