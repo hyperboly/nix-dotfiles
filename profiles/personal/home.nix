@@ -42,7 +42,7 @@
       #xdg-desktop-portal-gtk
       qbittorrent
       #jellyfin-media-player
-      #jellyfin-mpv-shim
+      jellyfin-mpv-shim
 
       tree-sitter
       lua-language-server
