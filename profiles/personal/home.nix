@@ -50,7 +50,6 @@
       imagemagick
       yt-dlp
 
-      prismlauncher
       thunderbird
       libreoffice-fresh
       vesktop
@@ -59,6 +58,8 @@
     ++
     (with pkgs; [ # Stable
       keepassxc
+      prismlauncher
+      ardour
       syncthing
       git
       gcc
