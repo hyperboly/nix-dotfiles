@@ -5,6 +5,7 @@
     ../../system/hardware-configuration.nix
     # ../../system/grub.nix
     ../../system/audio.nix
+    ../../system/networking.nix
     ../../system/kern.nix
     ../../system/zfs.nix
     ../../system/impermanence.nix
@@ -19,17 +20,6 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = systemSettings.hostname;
-  networking.networkmanager = {
-    enable = true;
-    wifi.macAddress = "random";
-  };
-  networking.nameservers = [ "100.100.100.100" ];
-  networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
 
   time.timeZone = systemSettings.timezone;
   fonts = {
@@ -167,7 +157,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 30;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostId = "eb3b649e";
   boot.initrd.luks.devices = {
     root = {
       device = "/dev/disk/by-uuid/76d3da1e-e86e-4025-b00a-2b8a8cc0f682";
