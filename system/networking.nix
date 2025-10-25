@@ -1,15 +1,25 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, systemSettings, ... }:
 
 {
-  networking.hostName = systemSettings.hostname;
-  networking.networkmanager = {
-    enable = true;
-    wifi.macAddress = "random";
+  networking = {
+    hostName = systemSettings.hostname;
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+    };
+    nameservers = [ "100.100.100.100" ];
+    firewall = rec {
+      allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
+    };
+    hostId = "eb3b649e";
+
+    # Bridging
+    # interfaces.br0.useDHCP = true;
+    # bridges = {
+    #   "br0" = {
+    #     interfaces = [ "wlp2s0" ];
+    #   };
+    # };
   };
-  networking.nameservers = [ "100.100.100.100" ];
-  networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-  networking.hostId = "eb3b649e";
 }
