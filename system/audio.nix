@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.musnix.nixosModules.musnix
+  ];
+
   # Enable sound.
   security.rtkit.enable = true;
   services.pipewire = {
@@ -10,4 +14,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  musnix.enable = true;
 }

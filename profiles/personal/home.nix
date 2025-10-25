@@ -93,6 +93,10 @@
       alsa-utils
       swayidle
       dragon-drop
+      yabridge
+      yabridgectl
+      gwc
+      noise-repellent
     ]);
     # ++
     # ([
