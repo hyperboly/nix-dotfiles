@@ -79,14 +79,23 @@
   services.libinput.enable = true;
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
-  # KDE
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    elisa
-    xwaylandvideobridge
-  ];
-
+  # KDE/xfce
+  # services.desktopManager.plasma6.enable = true;
+  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  #   plasma-browser-integration
+  #   elisa
+  #   xwaylandvideobridge
+  # ];
+  #
+  # services.xserver = {
+  #   enable = true;
+  #   autorun = false;
+  #   displayManager.startx.enable = true;
+  #   desktopManager = {
+  #     xterm.enable = false;
+  #     xfce.enable = true;
+  #   };
+  # };
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
