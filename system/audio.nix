@@ -15,5 +15,21 @@
     jack.enable = true;
   };
 
+  security.pam.loginLimits = [
+    {
+      domain = "@realtime";
+      type = "-";
+      item = "memlock";
+      value = "8192000";
+    }
+    {
+      domain = "@realtime";
+      type = "-";
+      item = "rtprio";
+      value = "95";
+    }
+  ];
+
+
   musnix.enable = true;
 }

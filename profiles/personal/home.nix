@@ -97,6 +97,9 @@
       yabridgectl
       gwc
       noise-repellent
+      lsp-plugins
+      guitarix
+      unzip
     ]);
     # ++
     # ([
