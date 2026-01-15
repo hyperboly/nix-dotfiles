@@ -401,6 +401,12 @@ workspace "chat" {
 workspace "keepass" {
     open-on-output "eDP-1"
 }
+workspace "games" {
+    open-on-output "eDP-1"
+}
+workspace "mon2" {
+    open-on-output "DP-2"
+}
 
 gestures {
     hot-corners {
