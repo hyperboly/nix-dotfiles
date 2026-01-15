@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, userSettings, ... }:
+{ config, inputs, lib, pkgs, pkgs-unstable, userSettings, ... }:
 
 {
   home.username = userSettings.username;
@@ -15,7 +15,7 @@
     ../../user/stylix.nix
     ../../user/tmux.nix
     ../../user/mpv.nix
-    ../../user/neovim/neovim.nix
+    # ../../user/neovim/neovim.nix
     ../../user/git.nix
     ../../user/xdg.nix
     ../../user/yazi.nix
@@ -100,6 +100,7 @@
       lsp-plugins
       guitarix
       unzip
+      inputs.nixcats-nvim.packages.${pkgs.system}.nvim
     ]);
     # ++
     # ([

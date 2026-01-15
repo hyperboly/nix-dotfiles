@@ -109,5 +109,10 @@
     };
 
     musnix  = { url = "github:musnix/musnix"; };
+
+    nixcats-nvim = {
+      url = "github:hyperboly/nixCats-nvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 }

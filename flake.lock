@@ -373,6 +373,42 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1767604542,
+        "narHash": "sha256-Gfzh+dgNRxCncn3kGfSvJk4IDn/9cu6hw1zKtHtrzNQ=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "57a3bba442f1606f6dd5406fbb8fee9900b3f61a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
+    "nixcats-nvim": {
+      "inputs": {
+        "nixCats": "nixCats",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768489282,
+        "narHash": "sha256-NRVltRSpf+hcnOQ7KMMFOlvDy1VrOUvRCN5GDWTFztw=",
+        "owner": "hyperboly",
+        "repo": "nixCats-nvim",
+        "rev": "7734b292079d3aaf29f2c7c8c0f6424007bb381f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyperboly",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1768397375,
@@ -575,6 +611,7 @@
         "lanzaboote": "lanzaboote",
         "musnix": "musnix",
         "niri": "niri",
+        "nixcats-nvim": "nixcats-nvim",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-unstable": "nixpkgs-unstable",
