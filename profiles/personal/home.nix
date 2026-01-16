@@ -152,6 +152,7 @@
   home.sessionVariables = {
     EDITOR = userSettings.editor;
     BROWSER = userSettings.browser;
+    NIX_SHELL_PRESERVE_PROMPT = "1";
     QT_QPA_PLATFORM = "wayland";
     QT_IM_MODULE="fcitx";
     XMODIFIERS="@im=fcitx";

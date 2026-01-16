@@ -34,7 +34,6 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    zsh
     git
     home-manager
     cryptsetup
@@ -100,10 +99,6 @@
   #
   # Environment programs
   #
-
-  #environment.shells = with pkgs; [ zsh ];
-  #users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   programs.htop.enable = true;
 
