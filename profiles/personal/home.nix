@@ -31,7 +31,6 @@
     (with pkgs-unstable; [ # Unstable
       swww
       libnotify
-      waybar
       grim
       slurp
       swappy
@@ -71,6 +70,7 @@
       ffmpeg
       obs-studio
       nemo
+      nautilus
       pulsemixer
       libsForQt5.qt5.qtwayland
       qt6.qtwayland

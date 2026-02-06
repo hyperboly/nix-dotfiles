@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, ... }:
 
 {
     xdg = {
@@ -24,6 +24,8 @@
             "image/gif" = "swayimg.desktop";
             "inode/directory" = "nemo.desktop";
             "inode/mount-point" = "yazi.desktop";
+            "video/*" = "mpv.desktop";
+            "audio/*" = "mpv.desktop";
         };
         mimeApps.enable = true;
     };
