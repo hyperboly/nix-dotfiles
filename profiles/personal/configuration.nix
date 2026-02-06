@@ -47,8 +47,6 @@
     mangohud
     libinput
 
-    android-tools
-    android-udev-rules
     lutris
     man-pages
     man-pages-posix
@@ -77,7 +75,6 @@
   services.libinput.enable = true;
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
-  # KDE/xfce
   # services.desktopManager.plasma6.enable = true;
   # environment.plasma6.excludePackages = with pkgs.kdePackages; [
   #   plasma-browser-integration
@@ -85,16 +82,19 @@
   #   xwaylandvideobridge
   # ];
   #
+  services.xserver.enable = true;
+  services.xserver.autorun = false;
+  services.xserver.displayManager.startx.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
+
   # services.xserver = {
   #   enable = true;
   #   autorun = false;
   #   displayManager.startx.enable = true;
   #   desktopManager = {
-  #     xterm.enable = false;
   #     xfce.enable = true;
   #   };
   # };
-
 
   #
   # Environment programs
