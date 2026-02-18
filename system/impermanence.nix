@@ -47,7 +47,6 @@
                 ".config/Signal"
                 ".config/vesktop"
                 ".config/obs-studio"
-                ".config/cinnamon"
                 ".local/share/nvim"
                 ".local/share/Steam"
                 ".local/share/PrismLauncher"

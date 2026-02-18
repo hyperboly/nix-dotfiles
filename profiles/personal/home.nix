@@ -128,6 +128,7 @@
     enable = true;
     package = pkgs-unstable.ripgrep;
   };
+  programs.lazygit.enable = true;
   programs.foot.enable = true;
   programs.fuzzel = {
     enable = true;
