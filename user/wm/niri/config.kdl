@@ -270,6 +270,8 @@ layout {
         // top 64
         // bottom 64
     }
+
+    background-color "transparent"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -286,6 +288,7 @@ spawn-at-startup "keepassxc"
 spawn-at-startup "foot" "-s"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 150 \"brightnessctl -s set 10\" resume \"brightnessctl -r\" timeout 300 \"swaylock -fF\" timeout 330 \"niri msg action power-off-monitors\" timeout 1800 \"systemctl suspend\" before-sleep \"swaylock -fF\" after-resume \"niri msg action power-on-monitors & brightnessctl -r & brightnessctl -rd rgb:kbd_backlight\""
+spawn-at-startup "steam"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -307,10 +310,46 @@ screenshot-path "~/Pictures/Screenshots/screenshot%Y-%m-%d %H-%M-%S.png"
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    off
+    // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 1.0
+    slowdown 1.0
+
+    window-open {
+        // Same as CSS cubic-bezier(0.05, 0.7, 0.1, 1)
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    window-close {
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    window-movement {
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    window-resize {
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+    exit-confirmation-open-close {
+        spring damping-ratio=0.6 stiffness=500 epsilon=0.01
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    overview-open-close {
+        curve "ease-out-quad"
+    }
+    recent-windows-close {
+        curve "cubic-bezier" 0.25 0.1 0.25 1.0
+    }
+    workspace-switch {
+        off
+    }
+    horizontal-view-movement {
+        off
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -335,6 +374,12 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Firefox - Choose User Profile$"
+    open-floating true
+    open-on-workspace "browser"
 }
 
 // Example: block out two password managers from screen capture.
@@ -362,6 +407,7 @@ window-rule {
 window-rule {
     match at-startup=true title=r#"^Mozilla Firefox$"#
     open-on-workspace "browser"
+    open-maximized-to-edges true
 }
 
 window-rule {
@@ -372,6 +418,11 @@ window-rule {
 window-rule {
     match app-id="foot"
     default-column-width { proportion 0.66667; }
+}
+
+window-rule {
+    match app-id="steam"
+    open-on-workspace "games"
 }
 
 // Example: enable rounded corners for all windows.
@@ -417,6 +468,37 @@ gestures {
 overview {
 }
 
+layer-rule {
+  match namespace="^swww-daemon$"
+  place-within-backdrop true
+}
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 100
+
+    highlight {
+        active-color "#ea76cb"
+        urgent-color "#e64553"
+        padding 30
+        corner-radius 20
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+Ctrl+grave  { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -440,8 +522,8 @@ binds {
     Mod+F1 { spawn "swaylock"; }
     Mod+Shift+D { spawn "vesktop" "--ozone-platform=wayland"; }
     Mod+Grave { spawn "dunstctl" "history-pop"; }
-    Mod+F12 { spawn "~/.dotfiles/user/wm/hyprland/scripts/show-stats.sh"; }
-    Mod+F11 { spawn "~/.dotfiles/user/wm/hyprland/scripts/show-time.sh"; }
+    Mod+F12 { spawn "~/.dotfiles/user/notifications/scripts/show-stats.sh"; }
+    Mod+F11 { spawn "~/.dotfiles/user/notifications/scripts/show-time.sh"; }
     Mod+B { spawn "eww" "open" "-c" "~/.dotfiles/user/wm/niri/eww-winbar" "win_bar"; }
     Mod+Shift+B { spawn "eww" "kill" "-c" "~/.dotfiles/user/wm/niri/eww-winbar"; }
 
@@ -461,7 +543,7 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
-    Mod+Q { close-window; }
+    Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -596,7 +678,7 @@ binds {
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-    Mod+o { toggle-overview; }
+    Mod+o repeat=false { toggle-overview; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -618,7 +700,7 @@ binds {
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+M { maximize-column; }
+    Mod+M { maximize-window-to-edges; }
     Mod+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.

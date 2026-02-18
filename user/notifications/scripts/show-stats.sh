@@ -3,8 +3,16 @@
 BRIGHTNESS_LEVEL=$(x=$(brightnessctl g) ; printf %.2f\\n "$(((10**9 * x/255)*100))e-9")
 VOL_LEVEL=$(pamixer --get-volume | tr -d '[:space:]')
 read -r BAT_LEVEL < /sys/class/power_supply/BAT1/capacity
-SSID=$(nmcli con show --active | grep wlp1s0 | cut -d ' ' -f 1)
+WIFI_SSID=$(nmcli con show --active | grep wifi | cut -d ' ' -f 1)
+ETH_SSID=$(nmcli con show --active | grep ethernet | cut -d ' ' -f 1)
+
+if [[ -z "$WIFI_SSID" ]]; then
+    SSID="$ETH_SSID"
+else
+    SSID="$WIFI_SSID"
+fi
 SSID=${SSID:-"N/a"}
+
 
 case $BAT_LEVEL in
     [0-9]|1[0-9]|2[0-4]) BAT_ICON="" ;;
