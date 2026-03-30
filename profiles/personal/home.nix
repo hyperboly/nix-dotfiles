@@ -101,6 +101,7 @@
       guitarix
       unzip
       inputs.nixcats-nvim.packages.${pkgs.system}.nvim
+      anki-bin
     ]);
     # ++
     # ([
