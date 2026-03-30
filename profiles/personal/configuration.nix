@@ -46,6 +46,7 @@
     sanoid
     mangohud
     libinput
+    distrobox
 
     lutris
     man-pages
@@ -121,6 +122,8 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/${userSettings.username}/.dotfiles";
   };
+
+  programs.noisetorch.enable = true;
 
   environment.extraInit = ''
         unset -v SSH_ASKPASS
