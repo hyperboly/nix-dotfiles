@@ -51,6 +51,7 @@
                 ".local/share/Steam"
                 ".local/share/PrismLauncher"
                 ".local/share/lutris"
+                ".local/share/Anki2"
                 ".local/state/nvim"
                 ".local/state/wireplumber"
                 { directory = ".gnupg"; mode = "0700"; }
