@@ -375,11 +375,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771404423,
-        "narHash": "sha256-UkyS5otULqu+f2QWeHt2OI4wGBzAd2FIzNCycOx2+Hs=",
+        "lastModified": 1774922106,
+        "narHash": "sha256-EAY0nPS7BhfP52PBk8+NyaX//bwnAwsK6QL7o+eoxGI=",
         "owner": "hyperboly",
         "repo": "nixCats-nvim",
-        "rev": "19428e0e8d491eb9ee6c1f59a14cd16769d41a22",
+        "rev": "f404f86f1fca5fa7e00ffba8c992fb0bf32076cb",
         "type": "github"
       },
       "original": {
