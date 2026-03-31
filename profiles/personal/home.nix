@@ -68,6 +68,7 @@
       playerctl
       pamixer
       ffmpeg
+      satty
       obs-studio
       nemo
       nautilus
@@ -102,6 +103,8 @@
       unzip
       inputs.nixcats-nvim.packages.${pkgs.system}.nvim
       anki-bin
+      terraform
+      packer
     ]);
     # ++
     # ([
