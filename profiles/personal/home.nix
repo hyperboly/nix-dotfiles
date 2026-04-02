@@ -29,7 +29,7 @@
 
   home.packages =
     (with pkgs-unstable; [ # Unstable
-      swww
+      awww
       libnotify
       grim
       slurp
@@ -101,9 +101,9 @@
       lsp-plugins
       guitarix
       unzip
-      inputs.nixcats-nvim.packages.${pkgs.system}.nvim
+      inputs.nixcats-nvim.packages.${pkgs.stdenv.hostPlatform.system}.nvim
       anki-bin
-      terraform
+      opentofu
       packer
     ]);
     # ++

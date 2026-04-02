@@ -137,10 +137,14 @@
   services.fwupd.enable = true;
 
   services.logind = {
-    powerKey = "hibernate";
-    powerKeyLongPress = "poweroff";
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
+    settings = {
+      Login = {
+        HandleLidSwitchExternalPower = "suspend";
+        HandleLidSwitch = "suspend";
+        HandlePowerKey = "hibernate";
+        HandlePowerKeyLongPress = "poweroff";
+      };
+    };
   };
 
   # Boot
