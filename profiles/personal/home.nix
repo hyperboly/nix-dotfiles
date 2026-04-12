@@ -23,6 +23,7 @@
     ../../user/keepassxc.nix
     ../../user/fcitx5.nix
     ../../user/ai303.nix
+    ../../user/easyeffects.nix
   ];
 
   #fonts.fontconfig.enable = true;
@@ -116,9 +117,6 @@
 
   services.syncthing.enable = true;
   services.kdeconnect.enable = true;
-  services.easyeffects = {
-    enable = true;
-  };
 
   #
   # Programs
