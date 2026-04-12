@@ -49,6 +49,7 @@
       imagemagick
       yt-dlp
 
+      prismlauncher
       thunderbird
       libreoffice-fresh
       vesktop
@@ -57,7 +58,6 @@
     ++
     (with pkgs; [ # Stable
       keepassxc
-      prismlauncher
       ardour
       syncthing
       git
@@ -97,7 +97,6 @@
       yabridge
       yabridgectl
       gwc
-      noise-repellent
       lsp-plugins
       guitarix
       unzip
@@ -117,6 +116,9 @@
 
   services.syncthing.enable = true;
   services.kdeconnect.enable = true;
+  services.easyeffects = {
+    enable = true;
+  };
 
   #
   # Programs
@@ -159,6 +161,7 @@
     BROWSER = userSettings.browser;
     NIX_SHELL_PRESERVE_PROMPT = "1";
     QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME= lib.mkForce "";
     QT_IM_MODULE="fcitx";
     XMODIFIERS="@im=fcitx";
     NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
