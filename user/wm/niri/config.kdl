@@ -280,8 +280,8 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "swww-daemon"
-spawn-at-startup "sh" "-c" "swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "sh" "-c" "awww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
 spawn-at-startup "thunderbird"
 spawn-at-startup "vesktop" "--ozone-platform=wayland"
 spawn-at-startup "firefox" "-p"
