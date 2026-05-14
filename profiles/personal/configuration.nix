@@ -53,6 +53,7 @@
     man-pages-posix
 
     sbctl
+    ollama-rocm
 
     # for niri
     xwayland-satellite
@@ -141,7 +142,7 @@
       Login = {
         HandleLidSwitchExternalPower = "suspend";
         HandleLidSwitch = "suspend";
-        HandlePowerKey = "hibernate";
+        HandlePowerKey = "suspend";
         HandlePowerKeyLongPress = "poweroff";
       };
     };
