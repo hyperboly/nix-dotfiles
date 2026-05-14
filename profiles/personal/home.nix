@@ -158,9 +158,9 @@
     EDITOR = userSettings.editor;
     BROWSER = userSettings.browser;
     NIX_SHELL_PRESERVE_PROMPT = "1";
-    QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME= lib.mkForce "";
-    QT_IM_MODULE="fcitx";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    # QT_QPA_PLATFORMTHEME="";
+    # QT_IM_MODULE="none";
     XMODIFIERS="@im=fcitx";
     NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
     MOZ_ENABLE_WAYLAND = "1"; # ensure enable wayland for Firefox
