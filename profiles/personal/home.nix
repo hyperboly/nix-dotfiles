@@ -103,6 +103,7 @@
       unzip
       inputs.nixcats-nvim.packages.${pkgs.stdenv.hostPlatform.system}.nvim
       anki-bin
+      zettlr
       opentofu
       packer
     ]);
