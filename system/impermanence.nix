@@ -47,6 +47,7 @@
                 ".config/Signal"
                 ".config/vesktop"
                 ".config/obs-studio"
+                ".config/Zettlr"
                 ".local/share/nvim"
                 ".local/share/Steam"
                 ".local/share/PrismLauncher"
