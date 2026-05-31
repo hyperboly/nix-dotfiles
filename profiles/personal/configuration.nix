@@ -53,7 +53,6 @@
     man-pages-posix
 
     sbctl
-    ollama-rocm
 
     # for niri
     xwayland-satellite
@@ -111,6 +110,10 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+
     #fontPackages = with pkgs; [
     #  wqy_zenhei
     #];
