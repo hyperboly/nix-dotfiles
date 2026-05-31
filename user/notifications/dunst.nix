@@ -13,6 +13,7 @@
         padding = 12;
         horizontal_padding = 12;
         max_icon_size = 170;
+        corner_radius = 10;
 
         font = lib.mkForce "Monocraft 12";
       };

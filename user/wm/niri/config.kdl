@@ -116,8 +116,6 @@ output "eDP-1" {
     // automatically.
     position x=0 y=0
 
-    variable-refresh-rate
-
     focus-at-startup
 }
 
@@ -473,6 +471,12 @@ overview {
 layer-rule {
   match namespace="^awww-daemon$"
   place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^notifications$"
+    geometry-corner-radius 10
+    block-out-from "screencast"
 }
 
 recent-windows {
