@@ -13,13 +13,21 @@
         monthly = 1;
       };
 
-      "rpool/persist/videos" = {
+      "rpool/videos" = {
         hourly = 0;
         daily = 1;
         weekly = 3;
         monthly = 1;
       };
-      "rpool/persist/steam" = {
+
+      "rpool/videos/library" = {
+        hourly = 24;  # Added hourly so you don't lose active edit progress
+        daily = 15;
+        weekly = 3;
+        monthly = 0;
+      };
+
+      "rpool/steam" = {
         hourly = 0;
         daily = 0;
         weekly = 0;
@@ -46,7 +54,18 @@
         "--no-privilege-elevation"
         "--no-sync-snap"
         "--delete-target-snapshots"
-        "--no-stream"
+      ];
+      recursive = true;
+    };
+
+    commands."backup_videos" = {
+      source = "rpool/videos";
+      target = "hyperboly@192.168.100.130:pool-01/hw-backups/nixon-backup/videos";
+      extraArgs = [ "--sshport=2200"
+        "--no-privilege-elevation"
+        "--no-sync-snap"
+        "--delete-target-snapshots"
+        "--exclude-datasets=rpool/videos/downloads"
       ];
       recursive = true;
     };
