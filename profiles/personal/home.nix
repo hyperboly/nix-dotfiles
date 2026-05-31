@@ -24,6 +24,7 @@
     ../../user/fcitx5.nix
     ../../user/ai303.nix
     ../../user/easyeffects.nix
+    ../../user/obs-studio.nix
   ];
 
   #fonts.fontconfig.enable = true;
@@ -70,7 +71,6 @@
       pamixer
       ffmpeg
       satty
-      obs-studio
       nemo
       nautilus
       pulsemixer
