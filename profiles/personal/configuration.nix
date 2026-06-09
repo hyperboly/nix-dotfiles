@@ -13,6 +13,7 @@
     ../../system/locale.nix
     ../../system/users.nix
     ../../system/containers.nix
+    ../../system/netbird.nix
     ../../system/peripherals/keyd.nix
     ../../system/wm/${userSettings.wm}.nix
     ../../system/displaymanager/tuigreet.nix
@@ -63,6 +64,8 @@
   #
   # Services
   #
+
+  services.resolved.enable = true;
 
   services.fprintd.enable = true;
   services.fprintd.tod.enable = false;
@@ -150,6 +153,12 @@
       };
     };
   };
+
+  # Devenv cachix options
+  nix.extraOptions = ''
+    extra-substituters = https://devenv.cachix.org
+    extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+  '';
 
   # Boot
   boot.loader.systemd-boot.enable = true;
