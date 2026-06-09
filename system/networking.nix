@@ -1,27 +1,83 @@
 { config, lib, pkgs, systemSettings, ... }:
 
 {
-  networking = {
-    hostName = systemSettings.hostname;
-    useDHCP = lib.mkDefault true;
-    usePredictableInterfaceNames = true;
-    networkmanager = {
-      enable = true;
-      wifi.macAddress = "random";
+  systemd.network = {
+    enable = true;
+
+    links = {
+      "10-wifi" = {
+        matchConfig.MACAddress = "10:5f:ad:d8:4c:ad";
+        linkConfig = {
+          Name = "wlp2s0";
+          MACAddressPolicy = "random";
+        };
+      };
     };
-    nameservers = [ "100.100.100.100" ];
-    # firewall = rec {
-    #   allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    #   allowedUDPPortRanges = allowedTCPPortRanges;
-    # };
+
+    networks = {
+      "20-br-lab" = {
+        matchConfig.Name = "br-lab";
+        networkConfig.LinkLocalAddressing = "no";
+      };
+
+      "20-br-dmz" = {
+        matchConfig.Name = "br-dmz";
+        networkConfig.LinkLocalAddressing = "no";
+      };
+
+      "99-unmanaged" = {
+        matchConfig.Name = "veth* docker* podman* virbr* vnet* tailscale* netbird*";
+        linkConfig.Unmanaged = "yes";
+      };
+    };
+
+    netdevs = {
+      "20-br-lab" = {
+        netdevConfig = {
+          Kind = "bridge";
+          Name = "br-lab";
+        };
+      };
+
+      "20-br-dmz" = {
+        netdevConfig = {
+          Kind = "bridge";
+          Name = "br-dmz";
+        };
+      };
+    };
+  };
+
+  networking = {
+    useNetworkd = true;
+    useDHCP = false;
+    usePredictableInterfaceNames = true;
+    hostName = systemSettings.hostname;
     hostId = "eb3b649e";
 
-    # Bridging
-    # interfaces.br0.useDHCP = true;
-    # bridges = {
-    #   "br0" = {
-    #     interfaces = [ "wlp2s0" ];
-    #   };
-    # };
+    networkmanager = {
+      enable = true;
+      unmanaged = [
+        "br-lab"
+        "br-dmz"
+        "interface-name:veth*"
+        "interface-name:podman*"
+        "interface-name:virbr*"
+        "interface-name:vnet*"
+        "interface-name:tailscale*"
+        "interface-name:netbird*"
+      ];
+      wifi.macAddress = "preserve";
+    };
+
+    firewall = {
+        enable = true;
+        allowedTCPPorts = [ 53317 ];
+        allowedUDPPorts = [ 53317 51820 41641 33073 ];
+        allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+        allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
+        checkReversePath = "loose";
+        trustedInterfaces = [ "netbird-wt0" ];
+      };
   };
 }
