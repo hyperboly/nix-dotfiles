@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BRIGHTNESS_LEVEL=$(x=$(brightnessctl g) ; printf %.2f\\n "$(((10**9 * x/255)*100))e-9")
+BRIGHTNESS_LEVEL=$(brightnessctl -m | cut -d, -f4 | tr -d %)
 VOL_LEVEL=$(pamixer --get-volume | tr -d '[:space:]')
 read -r BAT_LEVEL < /sys/class/power_supply/BAT1/capacity
 WIFI_SSID=$(nmcli con show --active | grep wifi | cut -d ' ' -f 1)
