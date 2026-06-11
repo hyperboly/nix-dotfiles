@@ -20,12 +20,13 @@
             "/var/lib/containers" # OCI Containers (images...)
             "/var/lib/libvirt"
             "/var/lib/sbctl"
+            "/var/lib/netbird-wt0/"
             "/etc/NetworkManager"
         ];
 
         files = [
             "/etc/machine-id"
-            { file = "/var/lib/netbird/setup-key"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+            { file = "/var/lib/netbird-wt0/setup-key"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
             #{ file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
         ];
 

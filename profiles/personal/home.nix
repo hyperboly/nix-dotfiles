@@ -87,7 +87,7 @@
       hugo
       audacity
       python3
-      helvum
+      qpwgraph
       tmuxifier
       #nerd-fonts.symbols-only
       musescore

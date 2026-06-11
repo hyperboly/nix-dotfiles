@@ -12,6 +12,7 @@
       "libvirtd"
       "audio"
       "realtime"
+      "netbird-wt0"
     ];
     uid = 1000;
     description = userSettings.name;

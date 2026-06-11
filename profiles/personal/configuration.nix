@@ -106,8 +106,6 @@
 
   programs.htop.enable = true;
 
-  programs.adb.enable = true;
-
   programs.dconf.enable = true;
 
   programs.steam = {

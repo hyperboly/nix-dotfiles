@@ -11,7 +11,7 @@
 
         # Path to a file containing the setup key for your peer
         # NOTE: if your setup key is reusable, make sure it is not copied to the Nix store.
-        setupKeyFile = "/var/lib/netbird/setup-key";
+        setupKeyFile = "/var/lib/netbird-wt0/setup-key";
       };
 
       environment = {
@@ -23,7 +23,7 @@
       port = 51821;
 
       # Set this to true if you want the GUI client
-      ui.enable = false;
+      ui.enable = true;
 
       # This opens ports required for direct connection without a relay
       openFirewall = true;

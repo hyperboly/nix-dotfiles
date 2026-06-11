@@ -84,10 +84,10 @@
     };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # impermanence repo
@@ -96,7 +96,7 @@
     # niri repo
     niri.url = "github:sodiboo/niri-flake";
 
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:danth/stylix/release-26.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     lanzaboote = {
