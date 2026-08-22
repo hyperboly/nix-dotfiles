@@ -59,7 +59,7 @@
     };
 
     commands."backup_videos" = {
-      source = "rpool/videos";
+      source = "rpool/videos/library";
       target = "hyperboly@192.168.100.130:pool-01/hw-backups/nixon-backup/videos";
       extraArgs = [ "--sshport=2200"
         "--no-privilege-elevation"

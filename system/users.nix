@@ -8,6 +8,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "systemd-journal"
       "adbusers"
       "libvirtd"
       "audio"

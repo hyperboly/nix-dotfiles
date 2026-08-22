@@ -20,6 +20,10 @@ hotkey-overlay {
     skip-at-startup
 }
 
+debug {
+    disable-cursor-plane
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
