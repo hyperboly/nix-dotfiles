@@ -87,10 +87,10 @@
   #   xwaylandvideobridge
   # ];
   #
-  services.xserver.enable = true;
-  services.xserver.autorun = false;
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.autorun = false;
+  # services.xserver.displayManager.startx.enable = true;
+  # services.xserver.desktopManager.cinnamon.enable = true;
 
   # services.xserver = {
   #   enable = true;

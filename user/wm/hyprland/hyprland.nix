@@ -55,9 +55,9 @@
         "uwsm-app -- gotify-desktop"
       ];
 
-      exec = [
-        "uwsm-app -- swww-daemon & swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
-      ];
+      # exec = [
+      #   "uwsm-app -- swww-daemon & swww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
+      # ];
 
       input = {
         kb_layout = "us";

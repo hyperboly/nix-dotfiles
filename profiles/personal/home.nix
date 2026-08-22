@@ -76,9 +76,9 @@
       pulsemixer
       libsForQt5.qt5.qtwayland
       qt6.qtwayland
-      adwaita-qt
-      adw-gtk3
-      adwaita-icon-theme
+      # adwaita-qt
+      # adw-gtk3
+      # adwaita-icon-theme
       lxqt.lxqt-policykit
       brightnessctl
       gimp
@@ -161,6 +161,7 @@
     EDITOR = userSettings.editor;
     BROWSER = userSettings.browser;
     NIX_SHELL_PRESERVE_PROMPT = "1";
+    GTK_THEME = "Windows XP Luna";
     QT_QPA_PLATFORM = "wayland;xcb";
     # QT_QPA_PLATFORMTHEME="";
     # QT_IM_MODULE="none";
