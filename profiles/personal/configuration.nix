@@ -27,6 +27,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       wqy_zenhei
+      corefonts
     ];
     fontconfig.enable = true;
   };

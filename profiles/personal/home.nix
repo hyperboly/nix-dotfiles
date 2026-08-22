@@ -107,6 +107,7 @@
       opentofu
       packer
       devenv
+      inputs.qml-niri.packages.${pkgs.system}.quickshell
     ]);
     # ++
     # ([
