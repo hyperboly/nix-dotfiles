@@ -7,7 +7,8 @@
       # This is mostly useful for server computers.
       # For manual setup instructions, see the wiki page section below.
       login = {
-        enable = true;
+        # enable = true;
+        enable = false;
 
         # Path to a file containing the setup key for your peer
         # NOTE: if your setup key is reusable, make sure it is not copied to the Nix store.
