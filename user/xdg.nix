@@ -64,7 +64,7 @@
             kdenlive = {
                 name = "Kdenlive (dgpu)";
                 genericName = "Video Editor";
-                exec = "DRI_PRIME=1 kdenlive %F";
+                exec = "env DRI_PRIME=1 kdenlive %F";
                 icon = "kdenlive";
                 terminal = false;
                 categories = [ "Qt" "KDE" "AudioVideo" "AudioVideoEditing" ];
