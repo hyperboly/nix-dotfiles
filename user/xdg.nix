@@ -51,6 +51,27 @@
                 mimeType = [ "application/x-ardour" ];
             };
 
+            guitarix = {
+                name = "Guitarix (low latency)";
+                genericName = "Mono Amplifier";
+                comment = "Simple mono amplifier simulation";
+                exec = "env PIPEWIRE_LATENCY=128/48000 guitarix %F";
+                icon = "gx_head";
+                terminal = false;
+                categories = [ "AudioVideo" "Audio" "X-Jack" "Midi" "X-MIDI" ];
+            };
+
+            kdenlive = {
+                name = "Kdenlive (dgpu)";
+                genericName = "Video Editor";
+                exec = "DRI_PRIME=1 kdenlive %F";
+                icon = "kdenlive";
+                terminal = false;
+                categories = [ "Qt" "KDE" "AudioVideo" "AudioVideoEditing" ];
+                settings = {
+                    StartupWMClass = "kdenlive";
+                };
+            };
         };
     };
 }
