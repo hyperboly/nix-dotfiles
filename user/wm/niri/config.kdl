@@ -7,9 +7,11 @@
 environment {
     DISPLAY ":0"
     GDK_BACKEND "wayland,x11,*"
-    QT_QPA_PLATFORM "wayland;xcb"
+    // QT_QPA_PLATFORM "wayland;xcb"
     SDL_VIDEODRIVER "wayland"
     CLUTTER_BACKEND "wayland"
+
+    QS_ICON_THEME "Adwaita"
 
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
     QT_QPA_PLATFORM "wayland;xcb"
@@ -283,7 +285,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "awww-daemon"
-spawn-at-startup "sh" "-c" "awww img ~/.dotfiles/user/wm/hyprland/wallpaper.jpg --transition-type any"
+spawn-at-startup "sh" "-c" "awww img ~/.dotfiles/user/wm/wallpapers/bliss.png --transition-type any"
 spawn-at-startup "thunderbird"
 spawn-at-startup "vesktop" "--ozone-platform=wayland"
 spawn-at-startup "firefox" "-p"

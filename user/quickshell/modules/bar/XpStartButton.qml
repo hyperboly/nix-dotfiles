@@ -7,9 +7,31 @@ Item {
     Layout.preferredWidth: 100
     Layout.fillHeight: true
 
+    function outline(ctx, w, h) {
+        var rx = h * 0.15;
+        var ry = h / 2;
+        var cx = w - rx;
+        var cy = h / 2;
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(cx, 0);
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(rx / ry, 1);
+        ctx.arc(0, 0, ry, -Math.PI / 2, Math.PI / 2, false);
+        ctx.restore();
+
+        ctx.lineTo(0, h);
+        ctx.closePath();
+    }
+
     Canvas {
         id: canvas
         anchors.fill: parent
+        onWidthChanged: requestPaint()
+        onHeightChanged: requestPaint()
         onPaint: {
             var ctx = getContext("2d");
             ctx.reset();
@@ -17,46 +39,59 @@ Item {
             var w = width;
             var h = height;
 
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(w - 22, 0);
-
-            ctx.arcTo(w, 0, w, h / 2, 12);
-            ctx.arcTo(w, h, w - 22, h, 12);
-
-            ctx.lineTo(0, h);
-            ctx.closePath();
-
-            var vertGrad = ctx.createLinearGradient(0, 0, 0, h);
-            vertGrad.addColorStop(0.00, "#388e3c"); // Top rim highlight
-            vertGrad.addColorStop(0.20, "#66bb6a"); // Upper-center bright spot
-            vertGrad.addColorStop(0.65, "#2e7d32"); // Mid body
-            vertGrad.addColorStop(0.90, "#1b5e20"); // Lower dark body
-            vertGrad.addColorStop(1.00, "#0d3b11"); // Bottom shadow rim
-            ctx.fillStyle = vertGrad;
+            startButton.outline(ctx, w, h);
+            var baseGrad = ctx.createLinearGradient(0, 0, 0, h);
+            baseGrad.addColorStop(0.00, "#66c26a");
+            baseGrad.addColorStop(0.15, "#4caf50");
+            baseGrad.addColorStop(0.50, "#388e3c");
+            baseGrad.addColorStop(0.80, "#2e7d32");
+            baseGrad.addColorStop(1.00, "#256628");
+            ctx.fillStyle = baseGrad;
             ctx.fill();
 
-            // --- 3. HORIZONTAL GEL CUSHION (Lighter center, darker edges) ---
-            var horizGrad = ctx.createLinearGradient(0, 0, w, 0);
-            horizGrad.addColorStop(0.00, "rgba(0,0,0,0.25)");       // Dark left edge
-            horizGrad.addColorStop(0.12, "rgba(255,255,255,0.0)");  // Transition
-            horizGrad.addColorStop(0.40, "rgba(255,255,255,0.28)"); // Bright vertical center swell
-            horizGrad.addColorStop(0.75, "rgba(0,0,0,0.0)");       // Transition
-            horizGrad.addColorStop(1.00, "rgba(0,0,0,0.40)");       // Dark right curving edge
-            ctx.fillStyle = horizGrad;
-            ctx.fill();
+            ctx.save();
+            startButton.outline(ctx, w, h);
+            ctx.clip();
 
-            // --- 5. CLEAN DARK GREEN OUTER BORDER ---
+            var glossGrad = ctx.createLinearGradient(0, 0, 0, h * 0.4);
+            glossGrad.addColorStop(0.0, "rgba(255,255,255,0.32)");
+            glossGrad.addColorStop(1.0, "rgba(255,255,255,0.0)");
+            ctx.fillStyle = glossGrad;
+            ctx.fillRect(0, 0, w, h * 0.4);
+
+            ctx.restore();
+
             ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(w - 22, 0);
-            ctx.arcTo(w, 0, w, h / 2, 12);
-            ctx.arcTo(w, h, w - 22, h, 12);
-            ctx.lineTo(0, h);
-
-            ctx.strokeStyle = "#113b11"; // Standard dark green border
+            ctx.moveTo(1, 1);
+            ctx.lineTo(w - h / 2, 1);
+            ctx.strokeStyle = "rgba(255,255,255,0.55)";
             ctx.lineWidth = 1;
             ctx.stroke();
+
+            startButton.outline(ctx, w, h);
+            ctx.strokeStyle = "#0f3010";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            console.debug("startButton canvas repainted", w, h);
+        }
+    }
+
+    Canvas {
+        id: hoverOverlay
+        anchors.fill: parent
+        opacity: mouseArea.containsMouse ? 0.14 : 0
+        Behavior on opacity {
+            NumberAnimation { duration: 120 }
+        }
+        onWidthChanged: requestPaint()
+        onHeightChanged: requestPaint()
+        onPaint: {
+            var ctx = getContext("2d");
+            ctx.reset();
+            startButton.outline(ctx, width, height);
+            ctx.fillStyle = "white";
+            ctx.fill();
         }
     }
 
@@ -67,7 +102,6 @@ Item {
         width: contentRow.implicitWidth
         height: contentRow.implicitHeight
 
-        // 1. Target content to be shadowed
         RowLayout {
             id: contentRow
             anchors.fill: parent
@@ -83,7 +117,7 @@ Item {
             }
 
             Text {
-                text: "start"
+                text: "Start"
                 font.family: "Tahoma"
                 font.pixelSize: 16
                 font.bold: true
@@ -97,16 +131,19 @@ Item {
             source: contentRow
 
             shadowEnabled: true
-            shadowColor: "#0a290a"      // Dark green XP shadow color
-            shadowHorizontalOffset: 2   // 1px right
-            shadowVerticalOffset: 3     // 1px down
-            shadowBlur: 0.2             // Keep blur low for sharp retro rendering
+            shadowColor: "#0a290a"
+            shadowHorizontalOffset: 2
+            shadowVerticalOffset: 3
+            shadowBlur: 0.2
         }
     }
 
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
+        hoverEnabled: true
         onPressed: canvas.requestPaint()
         onReleased: canvas.requestPaint()
+        onClicked: console.debug("Start button clicked")
     }
 }

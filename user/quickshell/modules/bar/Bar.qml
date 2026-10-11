@@ -1,10 +1,14 @@
+//bar.qml
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
+import Niri
 
 PanelWindow {
-    id: root
+    id: bar
+
+    required property Niri niri
 
     anchors {
         bottom: true
@@ -39,68 +43,33 @@ PanelWindow {
             spacing: 4
 
             XpStartButton {}
-
-            Rectangle {
-                Layout.preferredWidth: 160
-                Layout.fillHeight: true
-                radius: 2
-
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#3d7be6" }
-                    GradientStop { position: 0.4; color: "#2865d7" }
-                    GradientStop { position: 1.0; color: "#1a51b8" }
-                }
-
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    implicitHeight: 1
-                    color: "#7faaff"
-                }
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    width: 1
-                    color: "#7faaff"
-                }
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-                    width: 1
-                    color: "#0f2f70"
-                }
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    implicitHeight: 1
-                    color: "#0f2f70"
-                }
-
-                Text {
-                    anchors.centerIn: parent
-                    text: "Niri Window"
-                    font.family: "Tahoma"
-                    font.pixelSize: 11
-                    color: "white"
-                    elide: Text.ElideRight
-                }
-            }
+            OpenWindows { niri: bar.niri }
 
             Item {
                 Layout.fillWidth: true
             }
 
             Rectangle {
-                Layout.preferredWidth: 80
+                id: trayArea
+                Layout.preferredWidth: trayRow.implicitWidth + 20
                 Layout.fillHeight: true
 
                 gradient: Gradient {
-                    GradientStop { position: 0.0; color: "#0e3175" }
-                    GradientStop { position: 1.0; color: "#0c67d2" }
+                    GradientStop { position: 0.0; color: "#3fa9f5" }
+                    GradientStop { position: 0.12; color: "#2f92e6" }
+                    GradientStop { position: 0.5; color: "#1f7ed4" }
+                    GradientStop { position: 1.0; color: "#1665b8" }
+                }
+
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: parent.height * 0.4
+                    gradient: Gradient {
+                        GradientStop { position: 0.0; color: "#40ffffff" }
+                        GradientStop { position: 1.0; color: "#00ffffff" }
+                    }
                 }
 
                 Rectangle {
@@ -108,22 +77,38 @@ PanelWindow {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     implicitHeight: 1
-                    color: "#071a3d"
-                }
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    width: 1
-                    color: "#071a3d"
+                    color: "#00287a"
                 }
 
-                Text {
-                    anchors.centerIn: parent
-                    text: Qt.formatTime(new Date(), "hh:mm AP")
-                    font.family: "Tahoma"
-                    font.pixelSize: 11
-                    color: "white"
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    width: 1
+                    color: "#0a2d75"
+                }
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.leftMargin: 1
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    width: 1
+                    color: "#5b9ef2"
+                }
+
+                RowLayout {
+                    id: trayRow
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: 8
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    spacing: 6
+
+                    SysTray {}
+                    Battery {  }
+                    Volume {  }
+                    Time {}
                 }
             }
         }

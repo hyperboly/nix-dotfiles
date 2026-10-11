@@ -9,7 +9,7 @@ ShellRoot{
     id: root
 
     Niri {
-        id: niri
+        id: niriConnection
         Component.onCompleted: connect()
 
         onConnected: console.info("Connected to niri")
@@ -18,5 +18,5 @@ ShellRoot{
         }
     }
 
-    LazyLoader{ active: true; component: Bar{} }
+    LazyLoader{ active: true; component: Bar{ niri: niriConnection } }
 }
