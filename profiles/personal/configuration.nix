@@ -71,7 +71,8 @@
   services.fprintd.enable = true;
   services.fprintd.tod.enable = false;
   services.tailscale = {
-    enable = true;
+    # enable = true;
+    enable = false;
     package = pkgs.tailscale;
     useRoutingFeatures = "client";
     extraUpFlags = "--accept-routes --accept-dns";
@@ -79,6 +80,8 @@
 
   services.libinput.enable = true;
   services.xserver.desktopManager.runXdgAutostartIfNone = true;
+
+  services.upower.enable = true;
 
   # services.desktopManager.plasma6.enable = true;
   # environment.plasma6.excludePackages = with pkgs.kdePackages; [
