@@ -25,6 +25,8 @@
     pkiBundle = "/var/lib/sbctl";
   };
 
+  boot.zfs.forceImportRoot = false;
+
   fileSystems."/" = lib.mkForce
     {
       #device = "rpool/system/root";
