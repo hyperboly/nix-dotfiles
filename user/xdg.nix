@@ -44,8 +44,8 @@
                 name = "Ardour (low latency)";
                 genericName = "Digital Audio Workstation";
                 comment = "Digital Audio Workstation";
-                exec = "env PIPEWIRE_LATENCY=128/48000 ardour8 %F";
-                icon = "ardour8";
+                exec = "env PIPEWIRE_LATENCY=128/48000 ardour9 %F";
+                icon = "ardour9";
                 terminal = false;
                 categories = [ "AudioVideo" "Audio" "Recorder" ];
                 mimeType = [ "application/x-ardour" ];

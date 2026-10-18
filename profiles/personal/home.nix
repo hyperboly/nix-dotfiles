@@ -112,6 +112,7 @@
       gwc
       gxplugins-lv2
       x42-plugins
+      carla
     ]);
     # ++
     # ([
