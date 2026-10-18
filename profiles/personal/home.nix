@@ -111,7 +111,6 @@
       yabridgectl
       gwc
       gxplugins-lv2
-      calf
       x42-plugins
     ]);
     # ++
