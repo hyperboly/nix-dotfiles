@@ -143,7 +143,7 @@
 
   services.power-profiles-daemon.enable = true;
 
-  services.fwupd.enable = true;
+  services.fwupd.enable = lib.mkForce false;
 
   services.logind = {
     settings = {
