@@ -60,7 +60,6 @@
     ++
     (with pkgs; [ # Stable
       keepassxc
-      ardour
       syncthing
       git
       gcc
@@ -87,19 +86,12 @@
       hugo
       audacity
       python3
-      qpwgraph
       tmuxifier
       #nerd-fonts.symbols-only
-      musescore
       gotify-desktop
       alsa-utils
       swayidle
       dragon-drop
-      yabridge
-      yabridgectl
-      gwc
-      lsp-plugins
-      guitarix
       unzip
       inputs.nixcats-nvim.packages.${pkgs.stdenv.hostPlatform.system}.nvim
       anki-bin
@@ -108,6 +100,19 @@
       packer
       devenv
       inputs.qml-niri.packages.${pkgs.system}.quickshell
+
+      # music
+      guitarix
+      ardour
+      qpwgraph
+      musescore
+      lsp-plugins
+      yabridge
+      yabridgectl
+      gwc
+      gxplugins-lv2
+      calf
+      x42-plugins
     ]);
     # ++
     # ([
