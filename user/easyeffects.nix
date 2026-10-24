@@ -3,14 +3,827 @@
 {
   services.easyeffects = {
     enable = true;
-    preset = "input-noise-reduction";
+    preset = "mic-audio";
 
     extraPresets = {
-      input-noise-reduction = {
+      mic-audio = {
         input = {
+          "autogain#0" = {
+            bypass = false;
+            "force-silence" = false;
+            "input-gain" = 0.0;
+            "maximum-history" = 15;
+            "output-gain" = 0.0;
+            reference = "Geometric Mean (MSI)";
+            "silence-threshold" = -70.0;
+            target = -12.0;
+          };
           blocklist = [];
+          "compressor#0" = {
+            attack = 20.0;
+            "boost-amount" = 6.0;
+            "boost-threshold" = -72.0;
+            bypass = false;
+            dry = -80.01;
+            "hpf-frequency" = 10.0;
+            "hpf-mode" = "Off";
+            "input-gain" = 0.0;
+            "input-to-link" = -80.01;
+            "input-to-sidechain" = -80.01;
+            knee = -6.0;
+            "link-to-input" = -80.01;
+            "link-to-sidechain" = -80.01;
+            "lpf-frequency" = 20000.0;
+            "lpf-mode" = "Off";
+            makeup = 7.0;
+            mode = "Downward";
+            "output-gain" = 0.0;
+            ratio = 4.0;
+            release = 100.0;
+            "release-threshold" = -80.01;
+            sidechain = {
+              lookahead = 0.0;
+              mode = "Peak";
+              preamp = 0.0;
+              reactivity = 10.0;
+              source = "Middle";
+              "stereo-split-source" = "Left/Right";
+              type = "Feed-forward";
+            };
+            "sidechain-to-input" = -80.01;
+            "sidechain-to-link" = -80.01;
+            "stereo-split" = false;
+            threshold = -20.0;
+            wet = 0.0;
+          };
+          "equalizer#0" = {
+            balance = 0.0;
+            bypass = false;
+            "input-gain" = 0.0;
+            left = {
+              band0 = {
+                frequency = 22.4;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band1 = {
+                frequency = 27.8;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band10 = {
+                frequency = 194.06;
+                gain = 1.240000000000002;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band11 = {
+                frequency = 240.81;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band12 = {
+                frequency = 298.834;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band13 = {
+                frequency = 370.834;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band14 = {
+                frequency = 460.182;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band15 = {
+                frequency = 571.057;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band16 = {
+                frequency = 708.647;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band17 = {
+                frequency = 879.387;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band18 = {
+                frequency = 1091.26;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band19 = {
+                frequency = 1354.19;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band2 = {
+                frequency = 34.51;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band20 = {
+                frequency = 1680.47;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band21 = {
+                frequency = 2085.35;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band22 = {
+                frequency = 2587.79;
+                gain = -2.1099999999999994;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band23 = {
+                frequency = 3211.29;
+                gain = -1.5499999999999972;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band24 = {
+                frequency = 3985.01;
+                gain = -1.6700000000000017;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band25 = {
+                frequency = 4945.15;
+                gain = -1.8999999999999986;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band26 = {
+                frequency = 6136.63;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band27 = {
+                frequency = 7615.17;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band28 = {
+                frequency = 9449.96;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band29 = {
+                frequency = 11726.8;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band3 = {
+                frequency = 42.82;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band30 = {
+                frequency = 14552.2;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band31 = {
+                frequency = 18058.4;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band4 = {
+                frequency = 53.14;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band5 = {
+                frequency = 65.95;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band6 = {
+                frequency = 81.83;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band7 = {
+                frequency = 101.55;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band8 = {
+                frequency = 126.0;
+                gain = 1.4200000000000017;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band9 = {
+                frequency = 156.38;
+                gain = 2.259999999999998;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+            };
+            mode = "IIR";
+            "num-bands" = 32;
+            "output-gain" = 0.0;
+            "pitch-left" = 0.0;
+            "pitch-right" = 0.0;
+            right = {
+              band0 = {
+                frequency = 22.4;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band1 = {
+                frequency = 27.8;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band10 = {
+                frequency = 194.06;
+                gain = 1.240000000000002;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band11 = {
+                frequency = 240.81;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band12 = {
+                frequency = 298.834;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band13 = {
+                frequency = 370.834;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band14 = {
+                frequency = 460.182;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band15 = {
+                frequency = 571.057;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band16 = {
+                frequency = 708.647;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band17 = {
+                frequency = 879.387;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band18 = {
+                frequency = 1091.26;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band19 = {
+                frequency = 1354.19;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band2 = {
+                frequency = 34.51;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band20 = {
+                frequency = 1680.47;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band21 = {
+                frequency = 2085.35;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band22 = {
+                frequency = 2587.79;
+                gain = -2.1099999999999994;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band23 = {
+                frequency = 3211.29;
+                gain = -1.5499999999999972;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band24 = {
+                frequency = 3985.01;
+                gain = -1.6700000000000017;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band25 = {
+                frequency = 4945.15;
+                gain = -1.8999999999999986;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band26 = {
+                frequency = 6136.63;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band27 = {
+                frequency = 7615.17;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band28 = {
+                frequency = 9449.96;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band29 = {
+                frequency = 11726.8;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band3 = {
+                frequency = 42.82;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band30 = {
+                frequency = 14552.2;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band31 = {
+                frequency = 18058.4;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band4 = {
+                frequency = 53.14;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band5 = {
+                frequency = 65.95;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band6 = {
+                frequency = 81.83;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band7 = {
+                frequency = 101.55;
+                gain = 0.0;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band8 = {
+                frequency = 126.0;
+                gain = 1.4200000000000017;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+              band9 = {
+                frequency = 156.38;
+                gain = 2.259999999999998;
+                mode = "RLC (BT)";
+                mute = false;
+                q = 4.36;
+                slope = "x1";
+                solo = false;
+                type = "Bell";
+                width = 4.0;
+              };
+            };
+            "split-channels" = false;
+          };
+          "filter#0" = {
+            balance = 0.0;
+            bypass = false;
+            "equal-mode" = "IIR";
+            frequency = 80.0;
+            gain = 0.0;
+            "input-gain" = 0.0;
+            mode = "RLC (BT)";
+            "output-gain" = 0.0;
+            quality = 0.0;
+            slope = "x1";
+            type = "High-pass";
+            width = 4.0;
+          };
+          "limiter#0" = {
+            alr = false;
+            "alr-attack" = 5.0;
+            "alr-knee" = 0.0;
+            "alr-knee-smooth" = -5.0;
+            "alr-release" = 50.0;
+            attack = 0.25;
+            bypass = false;
+            dithering = "None";
+            "gain-boost" = false;
+            "input-gain" = 0.0;
+            "input-to-link" = -80.01;
+            "input-to-sidechain" = -80.01;
+            "link-to-input" = -80.01;
+            "link-to-sidechain" = -80.01;
+            lookahead = 5.0;
+            mode = "Herm Thin";
+            "output-gain" = 0.0;
+            oversampling = "None";
+            release = 20.0;
+            "sidechain-preamp" = 0.0;
+            "sidechain-to-input" = -80.01;
+            "sidechain-to-link" = -80.01;
+            "sidechain-type" = "Internal";
+            "stereo-link" = 100.0;
+            threshold = -6.0;
+          };
           plugins_order = [
             "rnnoise#0"
+            "filter#0"
+            "equalizer#0"
+            "compressor#0"
+            "autogain#0"
+            "stereo_tools#0"
+            "limiter#0"
           ];
           "rnnoise#0" = {
             bypass = false;
@@ -20,7 +833,30 @@
             "output-gain" = 0.0;
             release = 20.0;
             "use-standard-model" = true;
-            "vad-thres" = 50.0;
+            "vad-thres" = 15.0;
+            wet = 0.0;
+          };
+          "stereo_tools#0" = {
+            "balance-in" = 0.0;
+            "balance-out" = 0.0;
+            bypass = false;
+            delay = 0.0;
+            dry = -100.0;
+            "input-gain" = 0.0;
+            "middle-level" = 0.0;
+            "middle-panorama" = 0.0;
+            mode = "LR > L+R (Mono Sum L+R)";
+            mutel = false;
+            muter = false;
+            "output-gain" = 0.0;
+            phasel = false;
+            phaser = false;
+            "sc-level" = 1.0;
+            "side-balance" = 0.0;
+            "side-level" = 0.0;
+            softclip = false;
+            "stereo-base" = 0.0;
+            "stereo-phase" = 0.0;
             wet = 0.0;
           };
         };
