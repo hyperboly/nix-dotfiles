@@ -21,9 +21,9 @@
       };
 
       "rpool/videos/library" = {
-        hourly = 24;  # Added hourly so you don't lose active edit progress
-        daily = 15;
-        weekly = 3;
+        hourly = 24;
+        daily = 2;
+        weekly = 0;
         monthly = 0;
       };
 
@@ -38,7 +38,7 @@
 
   services.syncoid = {
     enable = true;
-    interval = "*-*-* 16:15:00";
+    interval = "hourly";
 
     #localSourceAllow = config.services.syncoid.localSourceAllow ++ [ "mount" ];
     #localTargetAllow = config.services.syncoid.localTargetAllow ++ [ "destroy" ];
@@ -64,7 +64,7 @@
       extraArgs = [ "--sshport=2200"
         "--no-privilege-elevation"
         "--no-sync-snap"
-        "--delete-target-snapshots"
+        # "--delete-target-snapshots"
         "--exclude-datasets=rpool/videos/downloads"
       ];
       recursive = true;
