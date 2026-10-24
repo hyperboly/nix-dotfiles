@@ -72,6 +72,15 @@
                     StartupWMClass = "kdenlive";
                 };
             };
+
+            carla = {
+                name = "Carla (xcb env var)";
+                genericName = "Carla Plugin Host";
+                exec = "env QT_QPA_PLATFORM=xcb carla %F";
+                icon = "carla";
+                terminal = false;
+                categories = [ "AudioVideo" "X-AudioEditing" "Qt" ];
+            };
         };
     };
 }
